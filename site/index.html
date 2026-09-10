@@ -31,12 +31,14 @@
         <span style="display: block; margin-top: 5px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #8A4356">Medicina Integrativa</span>
       </span>
     </a>
-    <nav style="display: flex; align-items: center; gap: clamp(16px, 2.4vw, 34px); font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6B1F30; flex-wrap: wrap; justify-content: flex-end">
+    <nav style="display: flex; align-items: center; gap: clamp(13px, 1.8vw, 26px); font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #6B1F30; flex-wrap: wrap; justify-content: flex-end">
       <a href="#inicio" style="color: #6B1F30" style-hover="color: #8A4356">Inicio</a>
       <a href="#enfoque" style="color: #6B1F30" style-hover="color: #8A4356">Quién soy</a>
-      <a href="#masterclass" style="color: #6B1F30" style-hover="color: #8A4356">Masterclass</a>
-      <a href="#inscripcion" style="color: #6B1F30" style-hover="color: #8A4356">Inscripción</a>
-      <button type="button" onClick="{{ openModal }}" style="padding: 13px 24px; border: none; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer" style-hover="background: #4A121F">Ver la masterclass</button>
+      <a href="#comparativa" style="color: #6B1F30" style-hover="color: #8A4356">Enfoque</a>
+      <a href="#testimonios" style="color: #6B1F30" style-hover="color: #8A4356">Reseñas</a>
+      <a href="#faq" style="color: #6B1F30" style-hover="color: #8A4356">Preguntas</a>
+      <a href="curso/" style="color: #8A4356; font-weight: 400" style-hover="color: #6B1F30">Masterclass</a>
+      <a href="https://encuadrada.com" target="_blank" rel="noopener noreferrer" style="padding: 13px 24px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase" style-hover="background: #4A121F; color: #fff">Agendar consulta</a>
     </nav>
   </header>
 
@@ -47,7 +49,7 @@
       <img src="assets/logo-icono-blanco.png" alt="" style="width: 100%; display: block; transform: rotate(14deg)">
     </div>
 
-    <svg ref="{{ linesRef }}" viewBox="0 0 780 340" aria-hidden="true" style="position: absolute; right: 0; bottom: 0; width: min(68vw, 800px); height: auto; pointer-events: none; opacity: 0.85; will-change: transform">
+    <svg ref="{{ linesRef }}" viewBox="0 0 780 340" aria-hidden="true" preserveAspectRatio="xMaxYMid meet" style="position: absolute; right: 0; bottom: 0; width: min(68vw, 800px); height: auto; pointer-events: none; opacity: 0.85; will-change: transform">
       <path d="M780 296 C 690 292, 616 270, 548 234 C 470 192, 404 166, 334 158 C 268 150, 210 158, 148 178" fill="none" stroke="#D89AA8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"></path>
       <path d="M700 286 C 696 266, 700 250, 708 236" fill="none" stroke="#D89AA8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
       <path d="M708 236 C 699 230, 697 216, 708 208 C 719 216, 717 230, 708 236 Z" fill="none" stroke="#D89AA8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -86,11 +88,11 @@
         <p style="margin: 0 0 22px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #D89AA8">Medicina integrativa · Psiconeuroinmunología clínica</p>
         <h1 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(38px, 5.4vw, 74px); line-height: 1.06; letter-spacing: -0.015em; color: #fff; text-wrap: pretty">Cuando tu cuerpo no responde y nadie te explica por qué.</h1>
         <p style="margin: 30px 0 0; max-width: 46ch; font-size: clamp(15px, 1.2vw, 17px); font-weight: 300; line-height: 1.72; color: rgba(255,255,255,0.86); text-wrap: pretty">Fatiga que no se va, digestión alterada, inflamación, ansiedad, sueño roto. No son síntomas sueltos: son un sistema pidiendo atención. Conecto sistema nervioso, inmunidad, hábitos y contexto de vida para llegar a la causa raíz.</p>
-        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px; margin-top: 42px">
-          <button type="button" onClick="{{ openModal }}" style="display: inline-flex; align-items: center; gap: 12px; padding: 17px 32px; border: none; border-radius: 999px; background: #F7E8EC; color: #6B1F30; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" style-hover="background: #D89AA8; color: #4A121F">Acceder a la masterclass
-            <span style="font-size: 15px; line-height: 1">→</span>
-          </button>
-          <span style="font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(216,154,168,0.9)">Gratuita · Online · 40 minutos</span>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; margin-top: 42px">
+          <a href="https://encuadrada.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 12px; padding: 17px 32px; border-radius: 999px; background: #F7E8EC; color: #6B1F30; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: #D89AA8; color: #4A121F">Agendar consulta
+            <span style="font-size: 15px; line-height: 1">&#8594;</span>
+          </a>
+          <a href="curso/" style="display: inline-flex; align-items: center; padding: 16px 30px; border: 1px solid rgba(216,154,168,0.75); border-radius: 999px; color: #F7E8EC; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: rgba(216,154,168,0.16); color: #fff">Masterclass gratuita</a>
         </div>
       </div>
 
@@ -115,7 +117,7 @@
   </section>
 
   <section id="motivos" data-screen-label="Motivos de consulta" style="position: relative; overflow: hidden; padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #EFD9DF">
-    <div style="position: relative; max-width: 1080px; margin: 0 auto">
+    <div style="position: relative; z-index: 1; max-width: 1080px; margin: 0 auto">
     
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 56px); align-items: end">
         <div>
@@ -147,7 +149,7 @@
         </article>
       </div>
     </div>
-  <svg viewBox="0 0 520 240" aria-hidden="true" style="position: absolute; width: min(52%, 520px); opacity: 0.95; height: auto; pointer-events: none; left: 909px; top: 6px">
+  <svg viewBox="0 0 520 240" aria-hidden="true" preserveAspectRatio="xMaxYMid meet" style="position: absolute; right: 0; bottom: 6%; width: min(52vw, 560px); opacity: 0.95; height: auto; pointer-events: none; z-index: 0">
       <path d="M520 196 C 432 192, 356 168, 288 130 C 232 98, 186 78, 132 68" fill="none" stroke="#C1798C" stroke-width="2" stroke-linecap="round"></path>
       <path d="M356 168 C 348 146, 348 126, 354 106" fill="none" stroke="#C1798C" stroke-width="1.2" stroke-linecap="round"></path>
       <path d="M354 106 C 345 100, 344 86, 354 78 C 364 86, 363 100, 354 106 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
@@ -172,7 +174,7 @@
         <p style="margin: 0 0 18px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Tu salud en buenas manos</p>
         <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(29px, 3.4vw, 46px); line-height: 1.14; letter-spacing: -0.01em; color: #6B1F30; text-wrap: pretty">Medicina con evidencia, personas en el centro.</h2>
         <div style="display: grid; gap: 18px; margin: 28px 0 0; max-width: 54ch; font-size: 15px; font-weight: 300; line-height: 1.78; color: #4A3038">
-          <p style="margin: 0; width: 748px; height: 67px">Soy la Dra. Daniela Bustos Riquelme, médica especializada en medicina integrativa con enfoque en psiconeuroinmunología clínica. Trabajo entre Barcelona y Chile.</p>
+          <p style="margin: 0; height: 67px">Soy la Dra. Daniela Bustos Riquelme, médica especializada en medicina integrativa con enfoque en psiconeuroinmunología clínica. Trabajo entre Barcelona y Chile.</p>
           <p style="margin: 0">La mayoría de mis pacientes llega después de años de exámenes normales y respuestas parciales. Cada síntoma se trató por separado, y ninguno se fue. Mi trabajo es leerlos juntos: qué le está pasando a tu sistema nervioso, a tu inmunidad, a tus hábitos y al momento de vida que estás atravesando.</p>
           <p style="margin: 0">De ahí sale un plan que se sostiene en el tiempo, no un alivio que dura mientras dura el tratamiento.</p>
         </div>
@@ -183,22 +185,13 @@
           <span style="padding: 8px 16px; border-radius: 999px; background: #E9C4CE; color: #5A1826; font-family: Montserrat, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Ansiedad</span>
           <span style="padding: 8px 16px; border-radius: 999px; background: #E9C4CE; color: #5A1826; font-family: Montserrat, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Sueño</span>
         </div>
-        <a href="#masterclass" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; padding-bottom: 6px; border-bottom: 1px solid #D89AA8; font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #6B1F30" style-hover="color: #8A4356; border-bottom: 1px solid #6B1F30">Ver la masterclass
-          <span style="font-size: 14px; line-height: 1">→</span>
-        </a>
+        <a href="https://encuadrada.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 12px; margin-top: 34px; padding: 16px 30px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: #4A121F; color: #fff">Agendar consulta
+            <span style="font-size: 15px; line-height: 1">&#8594;</span>
+          </a>
       </div>
 
     </div><figure style="position: relative; max-width: 1180px; margin: clamp(52px, 6.5vw, 88px) auto 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(28px, 5vw, 80px); align-items: center; width: 1001px; height: 522px">
       
-      <svg viewBox="0 0 90 320" aria-hidden="true" style="position: absolute; right: 0; top: 4%; width: min(8%, 80px); height: auto; pointer-events: none; opacity: 0.85">
-        <path d="M52 320 C 46 250, 44 180, 48 112 C 50 74, 54 42, 58 14" fill="none" stroke="#C1798C" stroke-width="1.2" stroke-linecap="round"></path>
-        <path d="M47 244 C 34 240, 24 228, 22 214 C 36 212, 46 222, 47 244 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-        <path d="M46 196 C 58 190, 72 194, 78 206 C 66 214, 52 210, 46 196 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-        <path d="M47 150 C 35 145, 26 132, 25 118 C 39 117, 48 128, 47 150 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-        <path d="M50 104 C 62 98, 75 102, 80 114 C 69 121, 55 117, 50 104 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-        <circle cx="58" cy="14" r="2.4" fill="#C1798C"></circle>
-        <circle cx="30" cy="286" r="1.6" fill="#C1798C"></circle>
-      </svg>
 
       <div style="position: relative; min-width: 0; display: grid; gap: clamp(16px, 1.8vw, 24px); justify-items: start; padding-left: clamp(0px, 3vw, 48px)">
         <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(46px, 5vw, 72px); line-height: 0.5; color: #6B1F30">“</span>
@@ -213,17 +206,47 @@
     </figure>
 
     
-  <svg viewBox="0 0 420 220" aria-hidden="true" style="position: absolute; left: -31px; width: min(42%, 400px); height: auto; pointer-events: none; opacity: 0.85; top: 1162px">
-        <path d="M0 34 C 78 44, 148 78, 208 126 C 254 162, 300 184, 352 190" fill="none" stroke="#C1798C" stroke-width="1.2" stroke-linecap="round"></path>
-        <path d="M208 126 C 218 148, 222 168, 220 188" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round"></path>
-        <circle cx="220" cy="190" r="2.4" fill="#C1798C"></circle>
-        <circle cx="255" cy="205" r="1.8" fill="#C1798C"></circle>
-        <circle cx="352" cy="190" r="1.4" fill="#C1798C"></circle>
-      </svg></section>
+  <svg viewBox="0 0 300 860" aria-hidden="true" preserveAspectRatio="xMaxYMin meet" style="position: absolute; right: 0; top: 4%; height: min(60%, 640px); width: auto; pointer-events: none; opacity: 0.85; z-index: 0">
+      <path d="M300 22 C 250 44, 214 80, 190 128 C 162 184, 148 246, 142 312 C 136 382, 134 452, 126 520 C 118 592, 102 656, 78 714 C 62 752, 48 786, 38 816" fill="none" stroke="#C1798C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M142 312 C 172 302, 196 308, 208 330 C 182 345, 154 338, 142 312 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M138 398 C 108 392, 86 372, 78 346 C 107 340, 131 362, 138 398 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M130 486 C 160 474, 187 480, 198 502 C 172 517, 144 510, 130 486 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M112 574 C 84 564, 66 542, 62 516 C 91 514, 111 538, 112 574 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M190 128 C 216 112, 244 116, 254 138 C 228 154, 202 149, 190 128 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M92 668 C 120 654, 148 660, 158 682 C 132 698, 104 691, 92 668 Z" fill="none" stroke="#C1798C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle cx="38" cy="818" r="2.6" fill="#C1798C"></circle>
+      <circle cx="58" cy="762" r="1.7" fill="#C1798C"></circle>
+      <circle cx="164" cy="240" r="1.9" fill="#C1798C"></circle>
+      <circle cx="124" cy="440" r="1.5" fill="#C1798C"></circle>
+    </svg>
+  <svg viewBox="0 0 300 920" aria-hidden="true" preserveAspectRatio="xMinYMax meet" style="position: absolute; left: 0; bottom: 3%; height: min(66%, 700px); width: auto; pointer-events: none; opacity: 0.85; z-index: 0">
+    <path d="M0 902 C 52 884, 88 852, 112 806 C 142 748, 156 682, 162 610 C 168 534, 170 458, 178 384 C 186 306, 202 234, 228 168 C 244 128, 258 92, 266 58" fill="none" stroke="#C1798C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M162 610 C 132 604, 108 586, 98 560 C 126 552, 152 574, 162 610 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M166 522 C 196 512, 222 518, 234 540 C 208 554, 180 546, 166 522 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M172 440 C 142 434, 120 414, 112 388 C 141 382, 165 404, 172 440 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M186 356 C 216 344, 243 350, 254 372 C 228 387, 200 380, 186 356 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M204 262 C 176 252, 158 230, 154 204 C 183 202, 203 226, 204 262 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M228 168 C 254 154, 280 158, 290 178 C 266 194, 240 189, 228 168 Z" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M112 806 C 90 794, 76 774, 74 752 C 98 752, 112 774, 112 806 Z" fill="none" stroke="#C1798C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle cx="266" cy="58" r="2.6" fill="#C1798C"></circle>
+    <circle cx="248" cy="112" r="1.7" fill="#C1798C"></circle>
+    <circle cx="140" cy="686" r="1.9" fill="#C1798C"></circle>
+    <circle cx="196" cy="308" r="1.5" fill="#C1798C"></circle>
+  </svg></section>
 
   <section id="comparativa" data-screen-label="Comparativa" style="position: relative; overflow: hidden; padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #EFD9DF">
     
-    <svg viewBox="0 0 300 160" aria-hidden="true" style="position: absolute; right: 0; top: 4%; width: min(28%, 300px); opacity: 0.85; height: auto; pointer-events: none">
+    <svg viewBox="0 0 400 200" aria-hidden="true" preserveAspectRatio="xMinYMid meet" style="position: absolute; left: 0; top: 6%; width: min(34vw, 400px); opacity: 0.9; height: auto; pointer-events: none">
+      <path d="M0 168 C 80 166, 150 142, 214 104 C 262 76, 300 62, 344 56" fill="none" stroke="#C1798C" stroke-width="1.9" stroke-linecap="round"></path>
+      <path d="M112 154 C 122 132, 128 116, 132 98" fill="none" stroke="#C1798C" stroke-width="1.1" stroke-linecap="round"></path>
+      <path d="M132 98 C 124 92, 123 80, 132 72 C 141 80, 140 92, 132 98 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
+      <path d="M186 122 C 200 130, 210 142, 216 158" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round"></path>
+      <circle cx="216" cy="158" r="2" fill="#C1798C"></circle>
+      <path d="M262 76 C 274 62, 288 54, 304 50" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linecap="round"></path>
+      <path d="M304 50 C 297 43, 299 31, 309 25 C 315 34, 312 45, 304 50 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
+      <circle cx="344" cy="56" r="2.4" fill="#C1798C"></circle>
+    </svg>
+    <svg viewBox="0 0 300 160" aria-hidden="true" preserveAspectRatio="xMaxYMid meet" style="position: absolute; right: 0; top: 4%; width: min(26vw, 300px); opacity: 0.85; height: auto; pointer-events: none">
       <path d="M300 130 C 232 126, 176 104, 118 72 C 84 54, 58 46, 26 42" fill="none" stroke="#C1798C" stroke-width="1.3" stroke-linecap="round"></path>
       <path d="M176 104 C 168 86, 166 72, 168 58" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round"></path>
       <circle cx="168" cy="58" r="1.7" fill="#C1798C"></circle>
@@ -256,16 +279,7 @@
         </div>
       </div>
       <p style="margin: 24px 0 0; text-align: center; font-size: 13px; font-weight: 300; color: #7A5A62">La medicina integrativa no reemplaza a tu médico tratante: se suma a él.</p>
-    <svg viewBox="0 0 400 200" aria-hidden="true" style="position: absolute; left: -116px; top: -50px; width: min(38%, 400px); opacity: 0.9; height: auto; pointer-events: none">
-      <path d="M0 168 C 80 166, 150 142, 214 104 C 262 76, 300 62, 344 56" fill="none" stroke="#C1798C" stroke-width="1.9" stroke-linecap="round"></path>
-      <path d="M112 154 C 122 132, 128 116, 132 98" fill="none" stroke="#C1798C" stroke-width="1.1" stroke-linecap="round"></path>
-      <path d="M132 98 C 124 92, 123 80, 132 72 C 141 80, 140 92, 132 98 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-      <path d="M186 122 C 200 130, 210 142, 216 158" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round"></path>
-      <circle cx="216" cy="158" r="2" fill="#C1798C"></circle>
-      <path d="M262 76 C 274 62, 288 54, 304 50" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linecap="round"></path>
-      <path d="M304 50 C 297 43, 299 31, 309 25 C 315 34, 312 45, 304 50 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-      <circle cx="344" cy="56" r="2.4" fill="#C1798C"></circle>
-    </svg></div>
+    </div>
   </section>
 
   <section id="proceso" data-screen-label="Proceso" style="position: relative; overflow: hidden; padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #F7E8EC">
@@ -315,9 +329,9 @@
   <section id="testimonios" data-screen-label="Testimonios" style="position: relative; overflow: hidden; padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #EFD9DF">
     <div style="position: relative; max-width: 1080px; margin: 0 auto">
       <div style="text-align: center; max-width: 620px; margin: 0 auto">
-        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Lo que dicen mis pacientes</p>
+        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Reseñas verificadas</p>
         <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(27px, 3.2vw, 44px); line-height: 1.14; color: #6B1F30; text-wrap: pretty">Historias reales, cambios que se sienten.</h2>
-        <p style="margin: 18px 0 0; display: inline-block; padding: 7px 15px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Textos de ejemplo — reemplazar por testimonios reales</p>
+        <p style="margin: 18px 0 0; display: inline-block; padding: 7px 15px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Pendiente · reemplazar por reseñas reales de Trustpilot</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: clamp(36px, 4.5vw, 56px)">
         <figure style="margin: 0; padding: 32px 28px; background: #fff; border: 1px solid rgba(107,31,48,0.1); border-radius: 3px; display: grid; gap: 20px">
@@ -336,103 +350,7 @@
           <figcaption style="font-family: Montserrat, sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #8A4356">Placeholder · Paciente</figcaption>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <section id="masterclass" data-screen-label="VSL" style="position: relative; overflow: hidden; padding: clamp(56px, 8vw, 100px) clamp(20px, 5vw, 72px); background: #4A121F">
-    <svg viewBox="0 0 300 180" aria-hidden="true" style="position: absolute; left: 0; top: 8%; width: min(26%, 290px); opacity: 0.65; height: auto; pointer-events: none">
-      <path d="M0 34 C 68 40, 128 62, 194 100 C 230 120, 258 132, 288 138" fill="none" stroke="#D89AA8" stroke-width="1.3" stroke-linecap="round"></path>
-      <path d="M194 100 C 196 82, 202 68, 212 56" fill="none" stroke="#D89AA8" stroke-width="1" stroke-linecap="round"></path>
-      <circle cx="212" cy="56" r="1.6" fill="#D89AA8"></circle>
-      <circle cx="288" cy="138" r="2.2" fill="#D89AA8"></circle>
-      <circle cx="96" cy="56" r="1.2" fill="#D89AA8"></circle>
-    </svg>
-    <svg viewBox="0 0 320 200" aria-hidden="true" style="position: absolute; right: 0; bottom: 6%; width: min(30%, 320px); opacity: 0.7; height: auto; pointer-events: none">
-      <path d="M320 168 C 250 164, 190 142, 140 108 C 104 84, 74 72, 40 66" fill="none" stroke="#D89AA8" stroke-width="1.7" stroke-linecap="round"></path>
-      <path d="M190 142 C 184 122, 184 106, 190 90" fill="none" stroke="#D89AA8" stroke-width="1.1" stroke-linecap="round"></path>
-      <path d="M190 90 C 182 84, 181 71, 190 64 C 199 71, 198 84, 190 90 Z" fill="none" stroke="#D89AA8" stroke-width="0.9" stroke-linejoin="round"></path>
-      <path d="M140 108 C 132 124, 130 140, 134 156" fill="none" stroke="#D89AA8" stroke-width="1" stroke-linecap="round"></path>
-      <path d="M134 156 C 141 161, 143 172, 137 180 C 128 175, 127 165, 134 156 Z" fill="none" stroke="#D89AA8" stroke-width="0.9" stroke-linejoin="round"></path>
-      <circle cx="40" cy="66" r="2.4" fill="#D89AA8"></circle>
-    </svg>
-    <div style="position: relative; max-width: 980px; margin: 0 auto; text-align: center">
-      <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #D89AA8">Masterclass gratuita · 40 minutos</p>
-      <h2 style="margin: 0 auto; max-width: 22ch; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.16; color: #fff; text-wrap: pretty">{{ vslHeadline }}</h2>
-
-      <div style="position: relative; margin: clamp(30px, 4vw, 46px) 0 0; aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; background: #350D16; border: 1px solid rgba(216,154,168,0.32); display: grid; place-items: center">
-        <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
-          <button type="button" onClick="{{ openModal }}" style="position: absolute; inset: 0; width: 100%; border: none; background: transparent; display: grid; justify-items: center; align-content: center; gap: 18px; cursor: pointer; padding: 24px" style-hover="background: rgba(216,154,168,0.06)">
-            <span style="display: grid; place-items: center; width: 78px; height: 78px; border-radius: 999px; border: 1px solid rgba(216,154,168,0.6); background: rgba(216,154,168,0.14)">
-              <span style="width: 0; height: 0; margin-left: 5px; border-left: 18px solid #F7E8EC; border-top: 11px solid transparent; border-bottom: 11px solid transparent"></span>
-            </span>
-            <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #F7E8EC">Desbloquear el video</span>
-            <span style="font-family: Inter, sans-serif; font-weight: 300; font-size: 13px; line-height: 1.6; color: rgba(247,232,236,0.66); max-width: 34ch">Completa tus datos y el video se abre en esta misma página.</span>
-          </button>
-        </sc-if>
-        <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ false }}">
-          <div style="position: absolute; inset: 0; display: grid; place-items: center; gap: 10px; align-content: center; background: #23070E">
-            <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #D89AA8">Video desbloqueado</span>
-            <span style="font-family: Inter, sans-serif; font-weight: 300; font-size: 13px; color: rgba(247,232,236,0.6)">Espacio del reproductor (embed del VSL)</span>
-          </div>
-        </sc-if>
-      </div>
-
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px 24px; margin-top: clamp(28px, 3.5vw, 40px)">
-        <a href="#inscripcion" style="display: inline-flex; align-items: center; gap: 12px; padding: 17px 32px; border-radius: 999px; background: #F7E8EC; color: #6B1F30; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: #D89AA8; color: #4A121F">Quiero mi acceso
-          <span style="font-size: 15px; line-height: 1">→</span>
-        </a>
-        <span style="font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(216,154,168,0.9)">Sin costo · Cupos limitados</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="inscripcion" data-screen-label="Formulario" style="position: relative; overflow: hidden; padding: clamp(64px, 9vw, 116px) clamp(20px, 5vw, 72px); background: #F7E8EC">
-    <svg viewBox="0 0 420 200" aria-hidden="true" style="position: absolute; left: 0; bottom: 2%; width: min(40%, 420px); opacity: 0.9; height: auto; pointer-events: none">
-      <path d="M0 176 C 84 172, 152 150, 214 116 C 258 92, 296 80, 336 76" fill="none" stroke="#C1798C" stroke-width="1.8" stroke-linecap="round"></path>
-      <path d="M152 150 C 148 128, 150 110, 158 94" fill="none" stroke="#C1798C" stroke-width="1.1" stroke-linecap="round"></path>
-      <path d="M158 94 C 149 89, 147 75, 157 67 C 167 75, 167 89, 158 94 Z" fill="none" stroke="#C1798C" stroke-width="0.9" stroke-linejoin="round"></path>
-      <path d="M258 92 C 268 78, 280 70, 294 66" fill="none" stroke="#C1798C" stroke-width="1" stroke-linecap="round"></path>
-      <circle cx="294" cy="66" r="1.7" fill="#C1798C"></circle>
-      <circle cx="336" cy="76" r="2.4" fill="#C1798C"></circle>
-    </svg>
-    <div style="position: relative; max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center">
-      <div style="min-width: 0">
-        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Acceso a la masterclass</p>
-        <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.14; color: #6B1F30; text-wrap: pretty">Deja tus datos y el video se abre al instante.</h2>
-        <p style="margin: 22px 0 0; max-width: 42ch; font-size: 15px; font-weight: 300; line-height: 1.76; color: #4A3038; text-wrap: pretty">También te llega el enlace a tu correo, para verla cuando quieras. Es gratuita y online.</p>
-        <ul style="margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; font-size: 14px; font-weight: 300; color: #4A3038">
-          <li style="display: flex; align-items: baseline; gap: 12px"><span style="color: #8A4356">—</span> Qué mira la medicina integrativa que los exámenes normales no explican</li>
-          <li style="display: flex; align-items: baseline; gap: 12px"><span style="color: #8A4356">—</span> Cómo se conectan fatiga, digestión, inflamación y sistema nervioso</li>
-          <li style="display: flex; align-items: baseline; gap: 12px"><span style="color: #8A4356">—</span> Los primeros pasos concretos para empezar a ordenar tu caso</li>
-        </ul>
-      </div>
-
-      <form onSubmit="{{ onSubmit }}" style="min-width: 0; display: grid; gap: 16px; padding: clamp(26px, 3.4vw, 42px); background: #fff; border: 1px solid rgba(107,31,48,0.12); border-radius: 3px; box-shadow: 0 24px 60px -40px rgba(74,18,31,0.4)">
-        <label style="display: grid; gap: 8px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Nombre</span>
-          <input name="nombre" type="text" required="required" placeholder="Tu nombre" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid rgba(107,31,48,0.22); border-radius: 2px; background: #FDF8F9; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30; background: #fff">
-        </label>
-        <label style="display: grid; gap: 8px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Correo electrónico</span>
-          <input name="email" type="email" required="required" placeholder="tu@correo.com" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid rgba(107,31,48,0.22); border-radius: 2px; background: #FDF8F9; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30; background: #fff">
-        </label>
-        <label style="display: grid; gap: 8px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">WhatsApp <span style="text-transform: none; letter-spacing: 0.02em; color: #8A4356">(opcional)</span></span>
-          <input name="telefono" type="tel" placeholder="+56 9 ..." style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid rgba(107,31,48,0.22); border-radius: 2px; background: #FDF8F9; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30; background: #fff">
-        </label>
-        <div style="display: grid; gap: 10px; margin-top: 4px">
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="terminos" type="checkbox" required="required" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Acepto la <a href="#inscripcion" style="color: #6B1F30; text-decoration: underline">política de privacidad</a> y el uso de mis datos para recibir el acceso a la clase.</span>
-          </label>
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="newsletter" type="checkbox" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Quiero recibir también la guía para pacientes y sus próximas clases.</span>
-          </label>
-        </div>
-        <button type="submit" style="margin-top: 6px; padding: 17px 28px; border: none; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" style-hover="background: #4A121F">{{ submitLabel }}</button>
-        <p style="margin: 4px 0 0; font-size: 11.5px; font-weight: 300; line-height: 1.6; color: #7A5A62">{{ statusText }}</p>
-      </form>
+      <p style="margin: 20px 0 0; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 13px; color: #1A1A1A">powered by <a href="https://www.trustpilot.com/review/PENDIENTE-perfil-real" target="_blank" rel="noopener noreferrer" style="font-weight: 700; color: #1A1A1A; text-decoration: underline; text-underline-offset: 3px">Trustpilot</a> — ver todas las reseñas</p>
     </div>
   </section>
 
@@ -469,7 +387,8 @@
           <li style="display: flex; align-items: baseline; gap: 12px"><span style="color: #8A4356">—</span> Qué exámenes vale la pena tener a mano</li>
           <li style="display: flex; align-items: baseline; gap: 12px"><span style="color: #8A4356">—</span> Las preguntas que casi nadie hace en la consulta</li>
         </ul>
-        <form onSubmit="{{ onGuia }}" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; max-width: 460px">
+        <p style="margin: 28px 0 0; display: inline-block; padding: 7px 15px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase">Pendiente · reemplazar por embed de GoHighLevel</p>
+        <form onSubmit="{{ onGuia }}" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; max-width: 460px">
           <input name="email" type="email" required="required" placeholder="tu@correo.com" style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; padding: 15px 17px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
           <button type="submit" style="flex: 0 0 auto; padding: 15px 28px; border: 1px solid #6B1F30; border-radius: 999px; background: transparent; color: #6B1F30; font-family: Montserrat, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" style-hover="background: #6B1F30; color: #fff">{{ guiaLabel }}</button>
           <label style="flex: 1 1 100%; display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
@@ -501,45 +420,24 @@
     </div>
   </section>
 
-  <section id="cierre" data-screen-label="CTA de cierre" style="position: relative; overflow: hidden; padding: clamp(68px, 9vw, 116px) clamp(20px, 5vw, 72px); background: #4A121F">
+  <section id="cierre" data-screen-label="CTA de cierre" style="position: relative; overflow: hidden; padding: clamp(76px, 10vw, 128px) clamp(20px, 5vw, 72px); background: #4A121F">
     <img src="assets/logo-icono-blanco.png" alt="" style="position: absolute; right: -70px; top: -60px; width: min(36vw, 340px); opacity: 0.07; pointer-events: none">
-    <div style="position: relative; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: center">
-      <div>
-        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #D89AA8">Masterclass gratuita · 40 minutos</p>
-        <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(27px, 3.2vw, 42px); line-height: 1.14; color: #fff; text-wrap: pretty">Empieza por entender qué le está pasando a tu cuerpo.</h2>
-        <p style="margin: 22px 0 0; max-width: 40ch; font-size: 15px; font-weight: 300; line-height: 1.76; color: rgba(255,255,255,0.84); text-wrap: pretty">Deja tus datos y el video se abre al instante. Sin costo y sin compromiso de consulta.</p>
+    <div style="position: relative; max-width: 760px; margin: 0 auto; text-align: center">
+      <p style="margin: 0 0 18px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #D89AA8">Consulta de medicina integrativa</p>
+      <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(29px, 3.6vw, 48px); line-height: 1.12; color: #fff; text-wrap: pretty">Empieza por entender qué le está pasando a tu cuerpo.</h2>
+      <p style="margin: 24px auto 0; max-width: 46ch; font-size: 15.5px; font-weight: 300; line-height: 1.76; color: rgba(255,255,255,0.84); text-wrap: pretty">Una primera consulta para revisar tu historia completa: síntomas, exámenes, alimentación, sueño y contexto de vida.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 20px; margin-top: 40px">
+        <a href="https://encuadrada.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; border-radius: 999px; background: #F7E8EC; color: #6B1F30; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: #D89AA8; color: #4A121F">Agendar consulta
+          <span style="font-size: 15px; line-height: 1">&#8594;</span>
+        </a>
+        <a href="curso/" style="display: inline-flex; align-items: center; padding: 17px 32px; border: 1px solid rgba(216,154,168,0.75); border-radius: 999px; color: #F7E8EC; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase" style-hover="background: rgba(216,154,168,0.16); color: #fff">Masterclass gratuita</a>
       </div>
-      <form onSubmit="{{ onSubmit }}" style="display: grid; gap: 14px; padding: clamp(24px, 3vw, 36px); background: #F7E8EC; border-radius: 3px">
-        <label style="display: grid; gap: 7px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Nombre</span>
-          <input name="nombre" type="text" required="required" placeholder="Tu nombre" style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-        </label>
-        <label style="display: grid; gap: 7px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Correo electrónico</span>
-          <input name="email" type="email" required="required" placeholder="tu@correo.com" style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-        </label>
-        <label style="display: grid; gap: 7px">
-          <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">WhatsApp <span style="text-transform: none; letter-spacing: 0.02em; color: #8A4356">(opcional)</span></span>
-          <input name="telefono" type="tel" placeholder="+56 9 ..." style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-        </label>
-        <div style="display: grid; gap: 10px; margin-top: 4px">
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="terminos" type="checkbox" required="required" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Acepto la <a href="#cierre" style="color: #6B1F30; text-decoration: underline">política de privacidad</a> y el uso de mis datos para recibir el acceso a la clase.</span>
-          </label>
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="newsletter" type="checkbox" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Quiero recibir también la guía para pacientes y sus próximas clases.</span>
-          </label>
-        </div>
-        <button type="submit" style="margin-top: 4px; padding: 16px 26px; border: none; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" style-hover="background: #350D16">{{ submitLabel }}</button>
-        <p style="margin: 2px 0 0; font-size: 11.5px; font-weight: 300; line-height: 1.6; color: #7A5A62">{{ statusText }}</p>
-      </form>
+      <p style="margin: 22px 0 0; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(216,154,168,0.85)">Agenda gestionada en encuadrada.com</p>
     </div>
   </section>
 
   <footer data-screen-label="Footer" style="position: relative; overflow: hidden; padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 72px) 32px; background: #350D16; color: rgba(247,232,236,0.8)">
-    <svg viewBox="0 0 300 150" aria-hidden="true" style="position: absolute; right: 0; bottom: 0; width: min(30%, 300px); opacity: 0.55; height: auto; pointer-events: none">
+    <svg viewBox="0 0 300 150" aria-hidden="true" preserveAspectRatio="xMaxYMid meet" style="position: absolute; right: 0; bottom: 0; width: min(26vw, 300px); opacity: 0.55; height: auto; pointer-events: none">
       <path d="M300 120 C 236 118, 182 100, 130 70 C 100 52, 74 44, 44 40" fill="none" stroke="#D89AA8" stroke-width="1.2" stroke-linecap="round"></path>
       <circle cx="44" cy="40" r="2.2" fill="#D89AA8"></circle>
       <circle cx="130" cy="70" r="1.5" fill="#D89AA8"></circle>
@@ -554,71 +452,42 @@
         <nav style="display: grid; gap: 12px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase">
           <a href="#inicio" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Inicio</a>
           <a href="#enfoque" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Quién soy</a>
-          <a href="#masterclass" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Masterclass</a>
+          <a href="#testimonios" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Reseñas</a>
+          <a href="curso/" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Masterclass</a>
           <a href="#faq" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Preguntas frecuentes</a>
         </nav>
         <div style="display: grid; gap: 12px">
           <p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #D89AA8">Contacto</p>
           <a href="https://instagram.com/dra.danielabustos" style="font-size: 14px; font-weight: 300; color: rgba(247,232,236,0.86)" style-hover="color: #D89AA8">Instagram @dra.danielabustos</a>
+          <a href="https://linkedin.com/in/PENDIENTE" style="font-size: 14px; font-weight: 300; color: rgba(247,232,236,0.86)" style-hover="color: #D89AA8">LinkedIn · perfil pendiente</a>
           <a href="mailto:contacto@dradanielabustos.com" style="font-size: 14px; font-weight: 300; color: rgba(247,232,236,0.86)" style-hover="color: #D89AA8">contacto@dradanielabustos.com</a>
+          <p style="margin: 2px 0 0; font-size: 10.5px; font-weight: 300; letter-spacing: 0.02em; color: rgba(247,232,236,0.5)">Pendiente · confirmar correo, Instagram y LinkedIn reales</p>
         </div>
       </div>
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; margin-top: clamp(36px, 4vw, 56px); padding-top: 24px; border-top: 1px solid rgba(216,154,168,0.22); font-size: 11.5px; font-weight: 300; color: rgba(247,232,236,0.6)">
         <p style="margin: 0">© 2026 Dra. Daniela Bustos Riquelme. Todos los derechos reservados.</p>
-        <p style="margin: 0">Powered by <a href="https://zabroso.cl" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">zabroso.cl</a> &amp; MK Agencia</p>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span>Powered by</span>
+          <a href="https://zabroso.cl" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; padding: 7px 14px; border: 1px dashed rgba(216,154,168,0.4); border-radius: 3px; font-family: Montserrat, sans-serif; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,232,236,0.82)" style-hover="border: 1px dashed #D89AA8; color: #D89AA8">Logo Zabroso</a>
+          <a href="#" style="display: inline-flex; align-items: center; justify-content: center; padding: 7px 14px; border: 1px dashed rgba(216,154,168,0.4); border-radius: 3px; font-family: Montserrat, sans-serif; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,232,236,0.82)" style-hover="border: 1px dashed #D89AA8; color: #D89AA8">Logo MK Agencia</a>
+        </div>
       </div>
     </div>
   </footer>
 
 
-  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closeModal }}" style="position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(35,7,14,0.72); backdrop-filter: blur(4px)">
-      <div onClick="{{ stop }}" role="dialog" aria-modal="true" style="position: relative; width: 100%; max-width: 460px; max-height: 92vh; overflow: auto; padding: clamp(28px, 4vw, 44px); background: #F7E8EC; border-radius: 4px; box-shadow: 0 40px 90px -30px rgba(35,7,14,0.7)">
-        <button type="button" onClick="{{ closeModal }}" aria-label="Cerrar" style="position: absolute; top: 14px; right: 16px; width: 34px; height: 34px; border: none; border-radius: 999px; background: transparent; color: #6B1F30; font-size: 20px; line-height: 1; cursor: pointer" style-hover="background: #E9C4CE">×</button>
-        <img src="assets/logo-icono-wine.png" alt="" style="width: 44px; height: 44px; display: block; margin-bottom: 18px">
-        <p style="margin: 0 0 10px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: #8A4356">Acceso gratuito</p>
-        <h3 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(23px, 2.4vw, 30px); line-height: 1.18; color: #6B1F30; text-wrap: pretty">Completa tus datos para ver la masterclass.</h3>
-        <form onSubmit="{{ onSubmit }}" style="display: grid; gap: 14px; margin-top: 24px">
-          <label style="display: grid; gap: 7px">
-            <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Nombre</span>
-            <input name="nombre" type="text" required="required" placeholder="Tu nombre" style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-          </label>
-          <label style="display: grid; gap: 7px">
-            <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">Correo electrónico</span>
-            <input name="email" type="email" required="required" placeholder="tu@correo.com" style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-          </label>
-          <label style="display: grid; gap: 7px">
-            <span style="font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6B1F30">WhatsApp <span style="text-transform: none; letter-spacing: 0.02em; color: #8A4356">(opcional)</span></span>
-            <input name="telefono" type="tel" placeholder="+56 9 ..." style="width: 100%; box-sizing: border-box; padding: 13px 15px; border: 1px solid rgba(107,31,48,0.24); border-radius: 2px; background: #fff; font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; color: #3A2028; outline: none" style-focus="border: 1px solid #6B1F30">
-          </label>
-          <div style="display: grid; gap: 10px; margin-top: 4px">
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="terminos" type="checkbox" required="required" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Acepto la <a href="#guia" style="color: #6B1F30; text-decoration: underline">política de privacidad</a> y el uso de mis datos para recibir el acceso a la clase.</span>
-          </label>
-          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #55393F">
-            <input name="newsletter" type="checkbox" style="margin: 2px 0 0; accent-color: #6B1F30; width: 15px; height: 15px; flex-shrink: 0">
-            <span>Quiero recibir también la guía para pacientes y sus próximas clases.</span>
-          </label>
-        </div>
-        <button type="submit" style="margin-top: 4px; padding: 16px 26px; border: none; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" style-hover="background: #4A121F">Ver la masterclass</button>
-          
-        </form>
-      </div>
-    </div>
-  </sc-if>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { unlocked: false, modalOpen: false, openFaq: 0, guiaSent: false };
+  state = { openFaq: 0, guiaSent: false };
   faqData = [
-    { q: '¿La masterclass tiene costo?', a: 'No. Es gratuita y se ve online. Solo necesitas dejar tu nombre y correo para acceder.' },
-    { q: '¿Cuánto dura?', a: 'Alrededor de 40 minutos. Puedes verla cuando quieras: el enlace también te llega al correo.' },
+    { q: '¿Cómo es la primera consulta?', a: 'Revisamos tu historia completa: síntomas, exámenes previos, alimentación, sueño y contexto de vida. El objetivo es entender la causa, no solo nombrar el síntoma.' },
     { q: '¿Esto reemplaza a mi médico tratante?', a: 'No. La medicina integrativa se suma al tratamiento que ya tienes; no sustituye diagnósticos ni indicaciones de tu equipo médico.' },
-    { q: '¿Necesito tener exámenes hechos para verla?', a: 'No. La clase está pensada para que entiendas el enfoque antes de cualquier estudio o consulta.' },
-    { q: '¿Atiendes solo en Chile?', a: 'Trabajo entre Barcelona y Chile, y la consulta puede ser online según el caso.' }
+    { q: '¿Necesito tener exámenes hechos?', a: 'No es requisito. Si los tienes, tráelos; si no, definimos juntas qué vale la pena estudiar.' },
+    { q: '¿Atiendes solo en Chile?', a: 'Trabajo entre Barcelona y Chile, y la consulta puede ser online según el caso.' },
+    { q: '¿Dónde agendo?', a: 'La agenda se gestiona en encuadrada.com. Ahí ves los horarios disponibles y confirmas tu hora.' }
   ];
   constructor(props) {
     super(props);
@@ -626,20 +495,10 @@ class Component extends DCLogic {
     this.linesRef = React.createRef();
     this.dotsRef = React.createRef();
     this.onScroll = this.onScroll.bind(this);
-    this.openModal = () => this.setState({ modalOpen: true });
-    this.closeModal = () => this.setState({ modalOpen: false });
-    this.stop = (e) => e.stopPropagation();
     this.onGuia = (e) => {
       e.preventDefault();
-      // Punto de conexión al funnel del cliente (lista de la guía + newsletter).
+      // PENDIENTE: reemplazar por el embed de GoHighLevel (lista de la guía).
       this.setState({ guiaSent: true });
-    };
-    this.onSubmit = (e) => {
-      e.preventDefault();
-      // Punto de conexión al funnel del cliente (ActiveCampaign / Mailchimp / webhook).
-      this.setState({ unlocked: true, modalOpen: false });
-      const vsl = document.getElementById('masterclass');
-      if (vsl) window.scrollTo({ top: vsl.offsetTop - 70, behavior: 'smooth' });
     };
   }
   componentDidMount() {
@@ -664,39 +523,25 @@ class Component extends DCLogic {
     });
   }
   renderVals() {
-    const u = this.state.unlocked;
     return {
       leafRef: this.leafRef,
       linesRef: this.linesRef,
       dotsRef: this.dotsRef,
-      openModal: this.openModal,
-      closeModal: this.closeModal,
-      stop: this.stop,
-      onSubmit: this.onSubmit,
       onGuia: this.onGuia,
       guiaLabel: this.state.guiaSent ? 'Enviada' : 'Enviarme la guía',
       guiaStatus: this.state.guiaSent
         ? 'La guía va camino a tu correo.'
         : 'Un correo, la guía y nada más. Sin spam.',
-      modalOpen: this.state.modalOpen,
       faqs: this.faqData.map((f, i) => ({
         q: f.q,
         a: f.a,
         open: this.state.openFaq === i,
         sign: this.state.openFaq === i ? '−' : '+',
         toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
-      })),
-      locked: !u,
-      unlocked: u,
-      vslHeadline: u ? 'Aquí está tu masterclass.' : 'Mira la clase antes de decidir si quieres consultar.',
-      submitLabel: u ? 'Listo — video desbloqueado' : 'Ver la masterclass',
-      statusText: u
-        ? 'Acceso activo. El enlace también va camino a tu correo.'
-        : 'Usamos tus datos solo para darte acceso a la clase. Sin spam.'
+      }))
     };
   }
 }
-
 </script>
 </body>
 </html>

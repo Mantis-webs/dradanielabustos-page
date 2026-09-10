@@ -4,22 +4,27 @@ Landing de página única para la masterclass gratuita. HTML, CSS y JavaScript, 
 
 ## Publicar en GitHub Pages
 
-Sube el contenido de esta carpeta a la raíz del repositorio y activa Pages en `Settings → Pages`, rama `main`, carpeta `/ (root)`.
+Se publica solo: `.github/workflows/deploy-pages.yml` sube esta carpeta a GitHub Pages en cada push a `main` que toque `site/**`. URL: https://mantis-webs.github.io/dradanielabustos-page/ (subpath `/dradanielabustos-page/`, por eso todas las rutas van relativas).
 
 ```
-index.html
+index.html          home / funnel a agendamiento
+curso/index.html    masterclass
 support.js
 assets/
 ```
 
 ## Qué falta antes de producción
 
-- Conectar los formularios al proveedor de correo. Hoy solo cambian de estado en pantalla; el punto de conexión está comentado en el bloque `<script data-dc-script>` (`onSubmit` y `onGuia`).
-- Insertar el reproductor real del VSL en el marco 16:9 de la sección `#masterclass`.
-- Página de política de privacidad: los checkboxes de consentimiento apuntan a un ancla vacía.
+- **Embeds de GoHighLevel** en los dos formularios: la guía gratuita (home) y la inscripción a la masterclass (/curso). Hoy solo cambian de estado en pantalla; el punto de conexión está marcado con un comentario en cada archivo.
+- **Reproductor del VSL** en el marco 16:9 de `/curso`.
+- **Reseñas reales de Trustpilot** y la URL del perfil (hoy apunta a un placeholder).
+- **Copy del hero de /curso**: titular y bajada están marcados como pendientes.
+- **Datos de contacto**: correo, Instagram y LinkedIn de Daniela.
+- **Logos de Zabroso y MK Agencia** en el footer (hoy son cajas con borde punteado).
+- **Guía gratuita**: falta el PDF y su entrega automática.
+- Página de política de privacidad: los checkboxes apuntan a un ancla vacía.
 - Logo en vector limpio. Los PNG de `assets/` son un recolor de los archivos originales en teal.
-- Revisión responsive de móvil y menú hamburguesa.
-- Reemplazar los testimonios de ejemplo y confirmar los datos de la FAQ (duración, modalidad).
+- Menú hamburguesa y revisión responsive de móvil.
 
 ## Dependencias externas
 
