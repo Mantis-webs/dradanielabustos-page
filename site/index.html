@@ -36,7 +36,6 @@
       <a href="#enfoque" style="color: #6B1F30" style-hover="color: #8A4356">Quién soy</a>
       <a href="#comparativa" style="color: #6B1F30" style-hover="color: #8A4356">Enfoque</a>
       <a href="#testimonios" style="color: #6B1F30" style-hover="color: #8A4356">Reseñas</a>
-      <a href="#faq" style="color: #6B1F30" style-hover="color: #8A4356">Preguntas</a>
       <a href="curso/" style="color: #8A4356; font-weight: 400" style-hover="color: #6B1F30">Masterclass</a>
       <a href="https://encuadrada.com" target="_blank" rel="noopener noreferrer" style="padding: 13px 24px; border-radius: 999px; background: #6B1F30; color: #fff; font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase" style-hover="background: #4A121F; color: #fff">Agendar consulta</a>
     </nav>
@@ -354,28 +353,6 @@
     </div>
   </section>
 
-  <section id="faq" data-screen-label="FAQ" style="padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #EFD9DF">
-    <div style="max-width: 860px; margin: 0 auto">
-      <div style="text-align: center">
-        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Preguntas frecuentes</p>
-        <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(27px, 3.2vw, 44px); line-height: 1.14; color: #6B1F30; text-wrap: pretty">Antes de inscribirte.</h2>
-      </div>
-      <div style="margin-top: clamp(34px, 4vw, 52px); border-top: 1px solid rgba(107,31,48,0.16)">
-        <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="5">
-          <div style="border-bottom: 1px solid rgba(107,31,48,0.16)">
-            <button type="button" onClick="{{ faq.toggle }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 4px; border: none; background: transparent; text-align: left; font-family: 'Playfair Display', serif; font-size: clamp(17px, 1.6vw, 21px); font-weight: 400; color: #6B1F30; cursor: pointer" style-hover="color: #8A4356">
-              {{ faq.q }}
-              <span style="flex-shrink: 0; font-family: Inter, sans-serif; font-size: 20px; font-weight: 300; line-height: 1; color: #8A4356">{{ faq.sign }}</span>
-            </button>
-            <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
-              <p style="margin: 0; padding: 0 4px 26px; max-width: 62ch; font-size: 14.5px; font-weight: 300; line-height: 1.76; color: #4A3038; text-wrap: pretty">{{ faq.a }}</p>
-            </sc-if>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
   <section id="guia" data-screen-label="Lead magnet" style="position: relative; overflow: hidden; padding: clamp(72px, 10vw, 120px) clamp(20px, 5vw, 72px); background: #F7E8EC">
     <div style="position: relative; max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center">
       <div style="min-width: 0">
@@ -454,7 +431,6 @@
           <a href="#enfoque" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Quién soy</a>
           <a href="#testimonios" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Reseñas</a>
           <a href="curso/" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Masterclass</a>
-          <a href="#faq" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Preguntas frecuentes</a>
         </nav>
         <div style="display: grid; gap: 12px">
           <p style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 400; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #D89AA8">Contacto</p>
@@ -481,14 +457,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  state = { openFaq: 0, guiaSent: false };
-  faqData = [
-    { q: '¿Cómo es la primera consulta?', a: 'Revisamos tu historia completa: síntomas, exámenes previos, alimentación, sueño y contexto de vida. El objetivo es entender la causa, no solo nombrar el síntoma.' },
-    { q: '¿Esto reemplaza a mi médico tratante?', a: 'No. La medicina integrativa se suma al tratamiento que ya tienes; no sustituye diagnósticos ni indicaciones de tu equipo médico.' },
-    { q: '¿Necesito tener exámenes hechos?', a: 'No es requisito. Si los tienes, tráelos; si no, definimos juntas qué vale la pena estudiar.' },
-    { q: '¿Atiendes solo en Chile?', a: 'Trabajo entre Barcelona y Chile, y la consulta puede ser online según el caso.' },
-    { q: '¿Dónde agendo?', a: 'La agenda se gestiona en encuadrada.com. Ahí ves los horarios disponibles y confirmas tu hora.' }
-  ];
+  state = { guiaSent: false };
   constructor(props) {
     super(props);
     this.leafRef = React.createRef();
@@ -531,14 +500,7 @@ class Component extends DCLogic {
       guiaLabel: this.state.guiaSent ? 'Enviada' : 'Enviarme la guía',
       guiaStatus: this.state.guiaSent
         ? 'La guía va camino a tu correo.'
-        : 'Un correo, la guía y nada más. Sin spam.',
-      faqs: this.faqData.map((f, i) => ({
-        q: f.q,
-        a: f.a,
-        open: this.state.openFaq === i,
-        sign: this.state.openFaq === i ? '−' : '+',
-        toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
-      }))
+        : 'Un correo, la guía y nada más. Sin spam.'
     };
   }
 }

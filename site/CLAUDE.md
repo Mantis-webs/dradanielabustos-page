@@ -70,7 +70,11 @@ Tipografía: **Playfair Display** en H1/H2, citas y la firma de la doctora.
 
 `#inicio` hero · validación emocional · `#motivos` · `#enfoque` presentación y
 cita · `#comparativa` · `#proceso` · `#testimonios` · `#masterclass` VSL ·
-`#inscripcion` · `#faq` · `#guia` lead magnet · `#cierre` · footer.
+`#inscripcion` · `#guia` lead magnet · `#cierre` · footer.
+
+La sección `#faq` se retiró del prototipo. Su markup y su lógica están
+guardados en `deprecated/faq-section.html` con instrucciones para reintegrarla
+si la clienta se arrepiente. No la vuelvas a agregar sin que te lo pidan.
 
 La navegación son anclas dentro de la misma página. No hay páginas separadas y
 no deben crearse.
@@ -95,8 +99,6 @@ no deben crearse.
 - Los testimonios son textos de ejemplo, marcados como tales en la interfaz.
 - Los logos de `assets/` son un recolor de PNG, no vectores limpios.
 - Falta el menú hamburguesa y una revisión responsive de móvil.
-- Los datos de la FAQ (duración, modalidad de consulta) no están confirmados
-  por la clienta.
 
 ## Al hacer cambios
 

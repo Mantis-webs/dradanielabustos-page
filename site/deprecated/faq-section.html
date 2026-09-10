@@ -1,0 +1,68 @@
+<!--
+  SECCIÓN FAQ — retirada del prototipo el 2026-09-10.
+
+  Motivo: se quitó del prototipo a pedido del proyecto. Se conserva aquí por si
+  la clienta se arrepiente y quiere recuperarla.
+
+  Cómo volver a integrarla en site/index.html:
+
+  1. MARKUP — pegar el <section id="faq"> de abajo justo después de
+     <section id="testimonios">…</section> y antes de <section id="guia">.
+
+  2. NAVEGACIÓN — volver a agregar el enlace en los dos <nav>:
+     - Header:  <a href="#faq" style="color: #6B1F30" style-hover="color: #8A4356">Preguntas</a>
+       (entre "Reseñas" #testimonios y "Masterclass" curso/)
+     - Footer:  <a href="#faq" style="color: rgba(247,232,236,0.82)" style-hover="color: #D89AA8">Preguntas frecuentes</a>
+
+  3. LÓGICA — en <script data-dc-script>:
+     - state:      añadir la clave openFaq  ->  state = { openFaq: 0, guiaSent: false };
+     - datos:      restaurar la propiedad faqData (ver bloque JS al final de este archivo)
+     - renderVals: restaurar la clave faqs (ver bloque JS al final de este archivo)
+
+  4. site/CLAUDE.md — devolver "#faq" al orden de secciones y, si sigue vigente,
+     la nota de pendientes sobre datos de FAQ no confirmados por la clienta.
+-->
+
+<section id="faq" data-screen-label="FAQ" style="padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px); background: #EFD9DF">
+    <div style="max-width: 860px; margin: 0 auto">
+      <div style="text-align: center">
+        <p style="margin: 0 0 16px; font-family: Montserrat, sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A4356">Preguntas frecuentes</p>
+        <h2 style="margin: 0; font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(27px, 3.2vw, 44px); line-height: 1.14; color: #6B1F30; text-wrap: pretty">Antes de inscribirte.</h2>
+      </div>
+      <div style="margin-top: clamp(34px, 4vw, 52px); border-top: 1px solid rgba(107,31,48,0.16)">
+        <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="5">
+          <div style="border-bottom: 1px solid rgba(107,31,48,0.16)">
+            <button type="button" onClick="{{ faq.toggle }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 4px; border: none; background: transparent; text-align: left; font-family: 'Playfair Display', serif; font-size: clamp(17px, 1.6vw, 21px); font-weight: 400; color: #6B1F30; cursor: pointer" style-hover="color: #8A4356">
+              {{ faq.q }}
+              <span style="flex-shrink: 0; font-family: Inter, sans-serif; font-size: 20px; font-weight: 300; line-height: 1; color: #8A4356">{{ faq.sign }}</span>
+            </button>
+            <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; padding: 0 4px 26px; max-width: 62ch; font-size: 14.5px; font-weight: 300; line-height: 1.76; color: #4A3038; text-wrap: pretty">{{ faq.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+<!--
+  ── BLOQUE JS a restaurar en <script data-dc-script> ──────────────────────────
+
+  // Propiedad de clase (junto a fa- / refs):
+  faqData = [
+    { q: '¿Cómo es la primera consulta?', a: 'Revisamos tu historia completa: síntomas, exámenes previos, alimentación, sueño y contexto de vida. El objetivo es entender la causa, no solo nombrar el síntoma.' },
+    { q: '¿Esto reemplaza a mi médico tratante?', a: 'No. La medicina integrativa se suma al tratamiento que ya tienes; no sustituye diagnósticos ni indicaciones de tu equipo médico.' },
+    { q: '¿Necesito tener exámenes hechos?', a: 'No es requisito. Si los tienes, tráelos; si no, definimos juntas qué vale la pena estudiar.' },
+    { q: '¿Atiendes solo en Chile?', a: 'Trabajo entre Barcelona y Chile, y la consulta puede ser online según el caso.' },
+    { q: '¿Dónde agendo?', a: 'La agenda se gestiona en encuadrada.com. Ahí ves los horarios disponibles y confirmas tu hora.' }
+  ];
+
+  // Dentro de renderVals(), en el objeto devuelto:
+  faqs: this.faqData.map((f, i) => ({
+    q: f.q,
+    a: f.a,
+    open: this.state.openFaq === i,
+    sign: this.state.openFaq === i ? '−' : '+',
+    toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+  }))
+-->
