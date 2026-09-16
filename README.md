@@ -59,6 +59,7 @@ El form ya existe en Go High Level. Falta el embed — pendiente de aclarar:
 El form **no existe todavía** en GHL, hay que crearlo. Campos definidos:
 
 - Nombre (requerido)
+- Apellido (requerido — separado de Nombre)
 - Correo electrónico (requerido)
 - WhatsApp / Teléfono — **requerido** (hoy está como opcional en el
   placeholder de `site/curso/index.html`; se define como obligatorio para
@@ -74,6 +75,7 @@ copy definitivo, VSL sin insertar.
 Campos definidos:
 
 - Nombre (nuevo — para poder personalizar el saludo del envío automático)
+- Apellido (nuevo — separado de Nombre)
 - Email (ya existe)
 - Teléfono / número de contacto (nuevo — para poder contactar al lead
   directamente, no solo por correo)
