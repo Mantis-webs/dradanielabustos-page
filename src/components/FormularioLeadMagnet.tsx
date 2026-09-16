@@ -1,4 +1,15 @@
-function Formulario() {
+import { useEffect } from 'react'
+
+function FormularioLeadMagnet() {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.msgsndr.com/js/form_embed.js'
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   return (
     <section
       id="form-container"
@@ -14,8 +25,8 @@ function Formulario() {
         src="https://api.leadconnectorhq.com/widget/form/i5J4FVtDg6IGXxDinIBS"
         style={{
           width: "100%",
-          minHeight: "745px",
-          height: "745px",
+          minHeight: "593px",
+          height: "593px",
           border: "none",
           borderRadius: "8px",
           display: "block",
@@ -28,16 +39,16 @@ function Formulario() {
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
-        data-form-name="Formulario - Dra. Daniela Bustos - Page"
-        data-height="745"
+        data-form-name="Formulario - Lead Magnet - Page"
+        data-height="593"
         data-layout-iframe-id="inline-i5J4FVtDg6IGXxDinIBS"
         data-form-id="i5J4FVtDg6IGXxDinIBS"
         data-cookie-consent="true"
         data-cookie-consent-provider="auto"
-        title="Formulario - Dra. Daniela Bustos - Page"
+        title="Formulario - Lead Magnet - Page"
       />
     </section>
   );
 }
 
-export default Formulario;
+export default FormularioLeadMagnet;

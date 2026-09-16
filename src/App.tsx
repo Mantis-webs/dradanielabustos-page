@@ -3,7 +3,7 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
-import Formulario from './components/Formulario'
+import FormularioLeadMagnet from './components/FormularioLeadMagnet'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -115,7 +115,7 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <Formulario/>
+      <FormularioLeadMagnet/>
       <section id="spacer"></section>
     </>
   )
