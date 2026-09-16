@@ -22,6 +22,8 @@ para conectar analítica/GHL más adelante.
 | Microsoft Clarity | — | Pendiente de acceso/credenciales |
 | Meta Pixel | — | Pendiente de ID/credenciales |
 | Go High Level (cuenta/API) | — | Pendiente de acceso |
+| GHL form ID — Lead Magnet (Guía gratuita) | `i5J4FVtDg6IGXxDinIBS` | Creado en GHL, embebido en `src/components/FormularioLeadMagnet.tsx` (2026-09-16) |
+| GHL form ID — Masterclass | `4OGCGkVkd06S7iChG3Ws` | Creado en GHL (2026-09-16). Aún sin embeber en ninguna página — no existe todavía el equivalente de `/curso` en `src/` |
 
 A medida que lleguen más accesos o enlaces, se agregan filas a esta tabla —no
 se pierden aunque cambie `site/`.
@@ -41,22 +43,24 @@ Portar `site/index.html` y `site/curso/index.html` (HTML plano + `support.js`)
 al stack final del producto en `src/` (React + Vite ya scaffolded; evaluar si
 se mantiene React o se cambia a Astro).
 
-### 2. Form de agendamiento en la página principal (`/`)
+### 2. Agendamiento en la página principal (`/`) — RESUELTO, no hay form de GHL
 
-El form ya existe en Go High Level. Falta el embed — pendiente de aclarar:
-
-- En `site/index.html`, el CTA "Agendar consulta" redirige externamente a
-  `https://p.encuadrado.com/p/dra-danielabustosriquelme`, no a un form
-  embebido.
-- Ya existe un form armado en `src/components/Formulario.tsx` (iframe GHL,
-  id `i5J4FVtDg6IGXxDinIBS`, staged sin commitear) cuyo rol no está definido:
-  ¿reemplaza el link externo al migrar a React, es un form de precalificación
-  previo al agendamiento, o es otra cosa? No se le pueden definir campos hasta
-  aclarar esto.
+**Corregido 2026-09-16**: se aclaró la ambigüedad de este punto. El form con
+id `i5J4FVtDg6IGXxDinIBS` (antes en `src/components/Formulario.tsx`, ahora
+renombrado a `src/components/FormularioLeadMagnet.tsx`) **no es** un form de
+agendamiento — es el mismo form de la Lead Magnet / Guía gratuita (punto 4).
+El agendamiento **no tiene form propio en GHL**: sigue siendo el link externo
+"Agendar consulta" → `https://p.encuadrado.com/p/dra-danielabustosriquelme`
+(gestionado por Encuadrado, fuera de GHL). No hay nada pendiente de crear acá
+a menos que se decida más adelante meter un form de precalificación antes del
+link — no se ha pedido.
 
 ### 3. Form de inscripción a la masterclass (`/curso`)
 
-El form **no existe todavía** en GHL, hay que crearlo. Campos definidos:
+El form ya se creó en GHL: id `4OGCGkVkd06S7iChG3Ws` (código de embed
+completo guardado en memoria del proyecto). **Falta embeberlo** — todavía no
+existe el equivalente de `/curso` en `src/`, así que no hay dónde montarlo
+hasta completar el punto 1 (migración de tecnología). Campos definidos:
 
 - Nombre (requerido)
 - Apellido (requerido — separado de Nombre)
@@ -75,7 +79,12 @@ copy definitivo, VSL sin insertar.
 
 ### 4. Form de la guía gratuita (home, sección `#guia`)
 
-Campos definidos:
+El form ya se creó en GHL: id `i5J4FVtDg6IGXxDinIBS`. Ya está embebido en el
+producto (`src/components/FormularioLeadMagnet.tsx`, montado en `src/App.tsx`)
+usando el código de embed oficial (incluye el script
+`https://link.msgsndr.com/js/form_embed.js`, requerido por GHL para el resize
+del iframe). **Falta** embeberlo también en `site/index.html` cuando llegue la
+versión nueva del prototipo (punto 1). Campos definidos:
 
 - Nombre (nuevo — para poder personalizar el saludo del envío automático)
 - Apellido (nuevo — separado de Nombre)
