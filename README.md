@@ -64,7 +64,10 @@ El form **no existe todavía** en GHL, hay que crearlo. Campos definidos:
 - WhatsApp / Teléfono — **requerido** (hoy está como opcional en el
   placeholder de `site/curso/index.html`; se define como obligatorio para
   poder hacer seguimiento por WhatsApp antes/después de la clase)
-- Checkbox de consentimiento de datos (nuevo — hoy no existe en este form)
+- Checkbox de consentimiento de datos (ya existe en el placeholder —
+  corregido 2026-09-16, antes decía por error que no existía. Texto actual:
+  "Acepto la política de privacidad y el uso de mis datos para recibir el
+  acceso a la clase.")
 - Tag automático en GHL: `lead-masterclass`
 
 También falta levantar el contenido real de `site/curso/index.html`: hero sin
