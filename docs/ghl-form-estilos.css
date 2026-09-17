@@ -4,12 +4,14 @@
    Dónde se pega:
      GHL → Sites → Forms → [el formulario] → Styles → Custom CSS
 
-   Se pega igual en los dos formularios:
-     · Lead Magnet / Guía gratuita   i5J4FVtDg6IGXxDinIBS
-     · Masterclass                   4OGCGkVkd06S7iChG3Ws
+   Qué pegar en cada formulario:
+     · Masterclass  4OGCGkVkd06S7iChG3Ws  → bloques 1 a 7
+     · Guía         i5J4FVtDg6IGXxDinIBS  → bloques 1 a 7 MÁS el bloque 8
 
-   Los dos tienen varios campos apilados y viven en una tarjeta blanca que pone
-   la página, así que comparten exactamente los mismos estilos.
+   El de la masterclass tiene varios campos apilados y vive en una tarjeta
+   blanca que pone la página. El de la guía pide solo el correo, se apoya
+   directamente sobre el fondo de la sección y usa el bloque 8 para recuperar
+   la línea de correo más botón del prototipo.
 
    Fuente de verdad del diseño: site/curso/index.html, sección #inscripcion.
    Los hex y las tipografías salen de la tabla de marca de site/CLAUDE.md.
@@ -233,4 +235,87 @@ button[type='submit'] {
 .btn.button-element:hover,
 button[type='submit']:hover {
   background: #350d16 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   8. SOLO para el formulario de la GUÍA — i5J4FVtDg6IGXxDinIBS
+
+   NO pegar esto en el de la masterclass.
+
+   El formulario de la guía pide únicamente el correo y el checkbox de
+   consentimiento (decisión final del 2026-09-16, README punto 4). Con un solo
+   campo puede volver al layout del prototipo: correo y botón en la misma línea,
+   consentimiento debajo, botón de contorno que se rellena al pasar el cursor.
+
+   Depende de que el formulario tenga EXACTAMENTE un campo. Si alguna vez se le
+   agregan campos, hay que quitar este bloque: volverían a apilarse, que es el
+   comportamiento del bloque base.
+   --------------------------------------------------------------------------- */
+
+/* 8.1 — Correo y botón comparten fila; el consentimiento ocupa la línea entera.
+   El `gap: 12px` reemplaza a los márgenes por campo del bloque 2. */
+.fields-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+.fields-container > * {
+  margin-bottom: 0 !important;
+}
+
+/* El campo de correo se estira. El `width`/`max-width` hacen falta porque GHL
+   le pone la clase .col-12, que lo fija al 100%. */
+.form-field-wrapper:has(input[type='email']) {
+  order: 1 !important;
+  flex: 1 1 200px !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+.form-builder--btn-submit {
+  order: 2 !important;
+  flex: 0 0 auto !important;
+  margin-top: 0 !important;
+}
+
+.form-field-wrapper:has(.checkbox-container) {
+  order: 3 !important;
+  flex: 1 1 100% !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* 8.2 — La etiqueta "Correo" se oculta a la vista pero sigue existiendo para
+   lectores de pantalla. En el prototipo el campo solo lleva placeholder; un
+   `display: none` le quitaría el nombre accesible al input. */
+.label-alignment {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* 8.3 — Botón de contorno, al ancho de su texto.
+   En el prototipo el sólido queda reservado para la masterclass. */
+.btn.button-element,
+button[type='submit'] {
+  width: auto !important;
+  padding: 15px 28px !important;
+  background: transparent !important;
+  border: 1px solid #6b1f30 !important;
+  color: #6b1f30 !important;
+}
+
+.btn.button-element:hover,
+button[type='submit']:hover {
+  background: #6b1f30 !important;
+  color: #fff !important;
 }
