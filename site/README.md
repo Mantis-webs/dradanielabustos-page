@@ -4,7 +4,7 @@ Landing de página única para la masterclass gratuita. HTML, CSS y JavaScript, 
 
 ## Publicar en GitHub Pages
 
-Se publica solo: `.github/workflows/deploy-pages.yml` sube esta carpeta a GitHub Pages en cada push a `main` que toque `site/**`. URL: https://mantis-webs.github.io/dradanielabustos-page/ (subpath `/dradanielabustos-page/`, por eso todas las rutas van relativas).
+Sube el contenido de esta carpeta a la raíz del repositorio y activa Pages en `Settings → Pages`, rama `main`, carpeta `/ (root)`.
 
 ```
 index.html          home / funnel a agendamiento
