@@ -11,10 +11,14 @@ const FORM_ID = 'i5J4FVtDg6IGXxDinIBS'
  * cross-origin, así que el CSS de esta página no lo alcanza. Los estilos que
  * lo dejan igual que el prototipo se pegan en el Custom CSS del builder de
  * GHL — están en `docs/ghl-form-estilos.css`. Ese CSS deja el fondo del
- * formulario transparente, así que la tarjeta la pone la página.
+ * formulario transparente, para que se apoye directamente sobre el blush de
+ * la sección, sin tarjeta, igual que en el prototipo.
  *
- * Los campos (Nombre, Apellido, Email, Teléfono, consentimiento de privacidad y
- * opt-in de newsletter por separado) se configuran en GHL, no acá.
+ * El formulario pide únicamente Correo más el checkbox de consentimiento de
+ * privacidad (decisión final del 2026-09-16, README punto 4). Por eso el alto
+ * reservado es bajo: el resizer de GHL ajusta el valor real al montar.
+ *
+ * Los campos se configuran en GHL, no acá.
  */
 export default function FormularioLeadMagnet() {
   useGhlEmbed()
@@ -26,10 +30,10 @@ export default function FormularioLeadMagnet() {
       listo. Sin este contenedor con alto reservado, la sección se colapsa y el
       contenido salta cuando el form aparece.
     */
-    <div className="min-h-[560px] w-full">
+    <div className="min-h-[150px] w-full">
       <iframe
         src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
-        className="block h-[560px] w-full border-none"
+        className="block h-[150px] w-full border-none"
         id={`inline-${FORM_ID}`}
         data-layout='{"id":"INLINE"}'
         data-trigger-type="alwaysShow"
