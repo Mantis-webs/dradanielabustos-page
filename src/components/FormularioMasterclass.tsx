@@ -1,11 +1,10 @@
 import { useGhlEmbed } from '../hooks/useGhlEmbed'
 
-const FORM_ID = 'i5J4FVtDg6IGXxDinIBS'
+const FORM_ID = '4OGCGkVkd06S7iChG3Ws'
 
 /**
- * Formulario de la guía gratuita (lead magnet), embebido desde Go High Level.
- * Código de embed oficial de GHL — el script `form_embed.js` que lo redimensiona
- * lo carga `useGhlEmbed`. Tag automático en GHL: `lead-guia`.
+ * Formulario de inscripción a la masterclass, embebido desde Go High Level.
+ * Tag automático en GHL: `lead-masterclass`.
  *
  * La APARIENCIA del formulario no se controla desde acá: el iframe es
  * cross-origin, así que el CSS de esta página no lo alcanza. Los estilos que
@@ -13,10 +12,14 @@ const FORM_ID = 'i5J4FVtDg6IGXxDinIBS'
  * GHL — están en `docs/ghl-form-estilos.css`. Ese CSS deja el fondo del
  * formulario transparente, así que la tarjeta la pone la página.
  *
- * Los campos (Nombre, Apellido, Email, Teléfono, consentimiento de privacidad y
- * opt-in de newsletter por separado) se configuran en GHL, no acá.
+ * Los campos definidos en el README (Nombre, Apellido, Correo, WhatsApp
+ * OBLIGATORIO y checkbox de consentimiento) se configuran en GHL, no acá.
+ *
+ * TODO (README punto 4, bloqueante): el checkbox de consentimiento enlaza a la
+ * política de privacidad, que todavía no existe como página. Hay que crearla
+ * antes de pedir ese consentimiento en serio.
  */
-export default function FormularioLeadMagnet() {
+export default function FormularioMasterclass() {
   useGhlEmbed()
 
   return (
@@ -38,13 +41,13 @@ export default function FormularioLeadMagnet() {
         data-activation-value=""
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
-        data-form-name="Formulario - Lead Magnet - Page"
+        data-form-name="Formulario - Masterclass"
         data-height="593"
         data-layout-iframe-id={`inline-${FORM_ID}`}
         data-form-id={FORM_ID}
         data-cookie-consent="true"
         data-cookie-consent-provider="auto"
-        title="Formulario - Lead Magnet - Page"
+        title="Formulario de inscripción a la masterclass"
       />
     </div>
   )
