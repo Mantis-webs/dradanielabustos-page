@@ -85,8 +85,7 @@ en `src/components/FormularioMasterclass.tsx`, montado en
   acceso a la clase.")
 - Tag automático en GHL: `lead-masterclass`
 
-También falta levantar el contenido real de `site/curso/index.html`: hero sin
-copy definitivo, VSL sin insertar.
+El contenido de la página —VSL y copy del hero— sigue pendiente: ver punto 13.
 
 ### 4. Form de la guía gratuita (home, sección `#guia`) — campos cerrados
 
@@ -204,3 +203,34 @@ Pendiente de verificar en un navegador real: el alto que reservan los
 contenedores de los iframes (`150px` la guía, `560px` la masterclass) es una
 estimación. Los formularios llevan Cloudflare Turnstile, que impide
 comprobarlos en un navegador headless.
+
+### 13. VSL y copy de `/curso` — pendiente
+
+La página de la masterclass está montada y navegable, pero su contenido es
+placeholder. Son dos huecos distintos, los dos visibles en la interfaz con su
+etiqueta "Pendiente":
+
+**El reproductor del VSL.** `src/components/curso/Vsl.tsx` dibuja un marco 16:9
+con un triángulo de play y el aviso "Pendiente · insertar reproductor del VSL".
+No hay video. Para cerrarlo hace falta:
+
+- El video en sí y dónde va a estar alojado. La elección importa más de lo que
+  parece: un embed de YouTube o Vimeo instala cookies de terceros en cuanto
+  carga, lo que engancha con la política de privacidad del punto 4. Si se
+  quiere evitar, existen las variantes sin cookies (`youtube-nocookie.com`) o
+  alojarlo en un proveedor que no rastree.
+- Confirmar la duración: el texto dice "Masterclass gratuita · 40 minutos" y
+  ese dato viene del prototipo, sin confirmar con la clienta.
+- Decidir si el video se bloquea detrás del formulario. **Hoy no se bloquea, y
+  eso es fiel al prototipo**: `site/CLAUDE.md` describe un estado `unlocked`
+  para ese fin, pero no existe ni en el markup ni en la lógica de
+  `site/curso/index.html`. Si se quiere el video bloqueado, es una
+  funcionalidad nueva que hay que pedir, no algo que se haya perdido al portar.
+
+**El copy del hero.** `src/components/curso/HeroCurso.tsx` muestra "Titular de
+la masterclass" y una bajada que empieza con "Bajada pendiente". Falta el
+titular y la promesa reales: qué se lleva quien ve la clase y por qué le sirve
+antes de cualquier consulta.
+
+Mientras los dos huecos sigan abiertos, `/curso` no se le puede mostrar a nadie
+que no sea la clienta.
