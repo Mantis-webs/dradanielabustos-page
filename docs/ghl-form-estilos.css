@@ -1,0 +1,236 @@
+/* ============================================================================
+   Dra. Daniela Bustos Riquelme — estilos de los formularios de Go High Level
+
+   Dónde se pega:
+     GHL → Sites → Forms → [el formulario] → Styles → Custom CSS
+
+   Se pega igual en los dos formularios:
+     · Lead Magnet / Guía gratuita   i5J4FVtDg6IGXxDinIBS
+     · Masterclass                   4OGCGkVkd06S7iChG3Ws
+
+   Los dos tienen varios campos apilados y viven en una tarjeta blanca que pone
+   la página, así que comparten exactamente los mismos estilos.
+
+   Fuente de verdad del diseño: site/curso/index.html, sección #inscripcion.
+   Los hex y las tipografías salen de la tabla de marca de site/CLAUDE.md.
+
+   ANTES DE PEGAR — dos cosas que conviene hacer desde el builder, no desde acá:
+     1. Tipografías: elegir Montserrat e Inter en el selector de fuentes de GHL.
+        GHL las carga de Google Fonts correctamente. El @import de más abajo es
+        solo un respaldo y puede ser ignorado según dónde inyecte GHL este CSS.
+     2. Texto del botón: hoy dice "Submit". Cambiarlo a "Enviarme la guía" y a
+        "Quiero inscribirme" respectivamente. Eso es contenido, no estilo.
+   ========================================================================== */
+
+/* Respaldo por si el selector de fuentes del builder no está disponible.
+   Un @import solo funciona si queda al principio de la hoja de estilos. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+
+/* ---------------------------------------------------------------------------
+   1. El formulario no pinta su propio fondo ni su propia tarjeta.
+
+   La página ya pone el marco: en /curso es una tarjeta blanca con borde wine
+   al 10%, y en la home el formulario va desnudo sobre el fondo blush. Si GHL
+   además pinta su tarjeta, quedan dos marcos, uno dentro del otro.
+   --------------------------------------------------------------------------- */
+body,
+.hl_wrapper--inner,
+.hl_form-builder--main,
+.form-builder--wrap,
+.ghl-form-wrap,
+.form-side {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.form-builder--wrap,
+.hl_form-builder--main,
+.form-side {
+  padding: 0 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   2. Ritmo vertical: 14px entre campos, igual que el `gap: 14px` del prototipo.
+   --------------------------------------------------------------------------- */
+/* El espaciado va SOLO en el contenedor de más afuera. GHL anida tres capas
+   (.form-field-wrapper > .form-field-container > .form-builder--item) y, si se
+   le pone margen a las tres, los 14px se convierten en 42px. */
+.form-field-wrapper {
+  margin-bottom: 14px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.form-field-container,
+.form-builder--item,
+.field-container,
+.flex-col {
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.form-builder--btn-submit {
+  margin-top: 4px !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   3. Etiquetas: Montserrat en versalitas, wine.
+
+   --------------------------------------------------------------------------- */
+.field-label,
+label.label-alignment {
+  display: block !important;
+  margin-bottom: 7px !important;
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.2em !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+  color: #6b1f30 !important;
+}
+
+
+/* El asterisco de campo obligatorio: GHL lo mete como <span>*</span> dentro de
+   la etiqueta. El prototipo no marca los obligatorios con asterisco, así que se
+   oculta. Ojo: es una señal de usabilidad que se pierde. Si prefieres
+   conservarla, borra este bloque — el asterisco hereda el wine de la etiqueta y
+   no desentona. */
+.field-label span,
+label.label-alignment span {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   4. Campos de texto.
+   --------------------------------------------------------------------------- */
+.form-control {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  padding: 13px 15px !important;
+  border: 1px solid rgba(107, 31, 48, 0.24) !important;
+  border-radius: 2px !important;
+  background: #fff !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  line-height: 1.4 !important;
+  color: #3a2028 !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease !important;
+}
+
+.form-control::placeholder {
+  color: #b79aa1 !important;
+  opacity: 1 !important;
+}
+
+.form-control:focus,
+.form-control:focus-visible {
+  border-color: #6b1f30 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   5. Icono del correo y selector de país del teléfono.
+
+   El prototipo no los tiene, pero son funcionales (validación de teléfono por
+   país) y no se pueden quitar: GHL les mete `padding-left: 36px !important`
+   como estilo inline, y un !important inline no se puede sobrescribir desde una
+   hoja de autor. Así que en vez de pelearlos, se les pone el color de la marca.
+   --------------------------------------------------------------------------- */
+/* El icono va posicionado contra el campo. GHL se apoya en una clase
+   utilitaria `relative` que podría no existir según el tema; se fija acá para
+   que el icono no se escape del input. */
+.email-input,
+.phone-input {
+  position: relative !important;
+}
+
+.input-icon,
+.input-icon svg,
+.email-input > svg {
+  color: #8a4356 !important;
+  fill: #8a4356 !important;
+}
+
+.iti__selected-flag {
+  border-radius: 2px 0 0 2px !important;
+  background: transparent !important;
+}
+
+.iti__country-list {
+  font-family: Inter, sans-serif !important;
+  font-size: 14px !important;
+  border: 1px solid rgba(107, 31, 48, 0.24) !important;
+  border-radius: 2px !important;
+}
+
+/* ---------------------------------------------------------------------------
+   6. Checkboxes de consentimiento.
+   --------------------------------------------------------------------------- */
+.checkbox-container {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+.checkbox-container input[type='checkbox'] {
+  flex-shrink: 0 !important;
+  width: 15px !important;
+  height: 15px !important;
+  margin: 2px 0 0 !important;
+  accent-color: #6b1f30 !important;
+}
+
+.checkbox-container label,
+.terms-text-container,
+.terms-text-container * {
+  font-family: Inter, sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 300 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #55393f !important;
+}
+
+.terms-text-container a {
+  color: #6b1f30 !important;
+  text-decoration: underline !important;
+}
+
+/* ---------------------------------------------------------------------------
+   7. Botón de envío: cápsula wine sólida, versalitas Montserrat.
+
+   Va con !important porque GHL pinta el botón con un atributo style inline
+   (`background:#155EEFFF; border-radius:8px; ...`), y un estilo inline sin
+   !important solo se gana declarando !important desde la hoja.
+   --------------------------------------------------------------------------- */
+.btn.button-element,
+button[type='submit'] {
+  width: 100% !important;
+  padding: 16px 26px !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background: #6b1f30 !important;
+  font-family: Montserrat, sans-serif !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+}
+
+.btn.button-element:hover,
+button[type='submit']:hover {
+  background: #350d16 !important;
+}
