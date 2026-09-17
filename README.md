@@ -23,25 +23,37 @@ para conectar analítica/GHL más adelante.
 | Meta Pixel | — | Pendiente de ID/credenciales |
 | Go High Level (cuenta/API) | — | Pendiente de acceso |
 | GHL form ID — Lead Magnet (Guía gratuita) | `i5J4FVtDg6IGXxDinIBS` | Creado en GHL, embebido en `src/components/FormularioLeadMagnet.tsx` (2026-09-16) |
-| GHL form ID — Masterclass | `4OGCGkVkd06S7iChG3Ws` | Creado en GHL (2026-09-16). Aún sin embeber en ninguna página — no existe todavía el equivalente de `/curso` en `src/` |
+| GHL form ID — Masterclass | `4OGCGkVkd06S7iChG3Ws` | Creado en GHL y embebido en `src/components/FormularioMasterclass.tsx` (2026-09-16) |
 
 A medida que lleguen más accesos o enlaces, se agregan filas a esta tabla —no
 se pierden aunque cambie `site/`.
 
 ## Pendientes
 
-**IMPORTANTE**: el cliente va a subir una versión nueva de `site/index.html` y
-`site/curso/index.html` — la que está actualmente en el repo no es la
-definitiva. No aplicar los cambios de formularios/campos descritos abajo hasta
-tener esa versión nueva. Los enlaces y accesos de conexión (Google, GHL, etc.)
-se van a ir entregando y se documentan acá a medida que lleguen. El repo es
+La versión nueva de `site/` que anticipaba este README **ya llegó** y está en
+el repo (2026-09-16). Los enlaces y accesos de conexión (Google, GHL, etc.) se
+van a ir entregando y se documentan acá a medida que lleguen. El repo es
 público; se decidió conscientemente no preocuparse por eso.
 
-### 1. Migración de tecnología
+### 1. Migración de tecnología — RESUELTO
 
-Portar `site/index.html` y `site/curso/index.html` (HTML plano + `support.js`)
-al stack final del producto en `src/` (React + Vite ya scaffolded; evaluar si
-se mantiene React o se cambia a Astro).
+`site/index.html` y `site/curso/index.html` están portados a `src/` con React
+19, TypeScript, Tailwind 4 y Vite (2026-09-16). Se mantuvo React; Astro quedó
+descartado. Ruteo con `react-router-dom` entre `/` y `/curso`, con fallback SPA
+cubierto para los dos hosts posibles: `public/_redirects` para Cloudflare Pages
+y un `dist/404.html` generado en build para GitHub Pages.
+
+Desvíos deliberados respecto del prototipo, documentados en el código:
+
+- **La sección `#faq` no se portó**, aunque la clienta la devolvió al
+  prototipo. Su markup sigue en `site/index.html` por si se decide recuperarla.
+- No se portaron tres medidas fijas heredadas del canvas de Claude Design que
+  rompen el layout (ver `src/components/home/Enfoque.tsx`).
+- Se resolvió el menú hamburguesa, que en el prototipo estaba pendiente.
+
+**Ojo**: `site/CLAUDE.md` describe estados (`unlocked` para bloquear el VSL,
+`modalOpen` para un pop-up) que no existen en el markup ni en la lógica de
+ninguna de las dos vistas. No se portaron porque no hay nada que portar.
 
 ### 2. Agendamiento en la página principal (`/`) — RESUELTO, no hay form de GHL
 
@@ -55,12 +67,11 @@ El agendamiento **no tiene form propio en GHL**: sigue siendo el link externo
 a menos que se decida más adelante meter un form de precalificación antes del
 link — no se ha pedido.
 
-### 3. Form de inscripción a la masterclass (`/curso`)
+### 3. Form de inscripción a la masterclass (`/curso`) — embebido
 
-El form ya se creó en GHL: id `4OGCGkVkd06S7iChG3Ws` (código de embed
-completo guardado en memoria del proyecto). **Falta embeberlo** — todavía no
-existe el equivalente de `/curso` en `src/`, así que no hay dónde montarlo
-hasta completar el punto 1 (migración de tecnología). Campos definidos:
+El form se creó en GHL con id `4OGCGkVkd06S7iChG3Ws` y **ya está embebido**
+en `src/components/FormularioMasterclass.tsx`, montado en
+`src/components/curso/Inscripcion.tsx` (2026-09-16). Campos definidos:
 
 - Nombre (requerido)
 - Apellido (requerido — separado de Nombre)
@@ -77,27 +88,37 @@ hasta completar el punto 1 (migración de tecnología). Campos definidos:
 También falta levantar el contenido real de `site/curso/index.html`: hero sin
 copy definitivo, VSL sin insertar.
 
-### 4. Form de la guía gratuita (home, sección `#guia`)
+### 4. Form de la guía gratuita (home, sección `#guia`) — campos cerrados
 
-El form ya se creó en GHL: id `i5J4FVtDg6IGXxDinIBS`. Ya está embebido en el
-producto (`src/components/FormularioLeadMagnet.tsx`, montado en `src/App.tsx`)
-usando el código de embed oficial (incluye el script
-`https://link.msgsndr.com/js/form_embed.js`, requerido por GHL para el resize
-del iframe). **Falta** embeberlo también en `site/index.html` cuando llegue la
-versión nueva del prototipo (punto 1). Campos definidos:
+Form id `i5J4FVtDg6IGXxDinIBS`, embebido en el producto
+(`src/components/FormularioLeadMagnet.tsx`, montado en
+`src/components/home/Guia.tsx`) con el código de embed oficial, que incluye el
+script `https://link.msgsndr.com/js/form_embed.js` requerido por GHL para
+redimensionar el iframe.
 
-- Nombre (nuevo — para poder personalizar el saludo del envío automático)
-- Apellido (nuevo — separado de Nombre)
-- Email (ya existe)
-- Teléfono / número de contacto (nuevo — para poder contactar al lead
-  directamente, no solo por correo)
-- Checkbox "acepto política de privacidad" (ya existe — **bloqueante**: hoy
-  linkea a un ancla vacía en `site/index.html`, hace falta la página de
-  política de privacidad real antes de poder pedir este consentimiento en
-  serio)
-- Checkbox newsletter (ya existe, opt-in de marketing **separado** del
-  anterior — no combinar ambos consentimientos en un solo checkbox)
+**Decisión final del 2026-09-16 — el form pide solo dos cosas:**
+
+- Correo (obligatorio)
+- Checkbox de consentimiento de la política de privacidad (obligatorio)
 - Tag automático en GHL: `lead-guia`
+
+Se descartaron Nombre, Apellido y Teléfono, que llegaron a estar configurados.
+La captura de la guía vuelve a ser la de una sola línea: cuanto menos fricción,
+más leads en un recurso gratuito. Los datos de contacto ricos se piden en el
+form de la masterclass (punto 3), que es el paso de mayor intención.
+
+**También se descartó el checkbox de newsletter.** Motivo técnico: el elemento
+"Terms & Conditions" de GHL es un campo de sistema, así que dos casillas
+escriben en el mismo campo `terms_and_conditions` y no se pueden distinguir en
+la ficha del contacto. Un opt-in de marketing que no se puede leer no se puede
+honrar. Si más adelante se quiere newsletter, hay que crear un **campo
+personalizado** de tipo checkbox en GHL (Settings → Custom Fields) en vez de un
+segundo "Terms & Conditions": ese sí tiene clave propia y se puede segmentar.
+
+**Sigue bloqueante**: el enlace a la política de privacidad no apunta a ninguna
+parte, porque esa página no existe. En el producto es la constante
+`POLITICA_PRIVACIDAD` de `src/data/enlaces.ts`, hoy en `'#'`. Hace falta la
+página real antes de poder pedir este consentimiento en serio.
 
 ### 5. Deploy — verificar Cloudflare Pages
 
@@ -143,20 +164,43 @@ de Trustpilot"). En su lugar:
   vía Cloudflare Workers/Functions con un cron de refresco, pero no está
   claro todavía — queda a investigar antes de decidir la arquitectura.
 
-### 10. Corregir links tras la migración (NO están aplicados en la versión final)
+### 10. Links tras la migración — RESUELTOS en el producto
 
-Los links de abajo se corrigieron el 2026-09-16 en la versión de `site/`
-**que va a ser reemplazada** por la que entregue la clienta — esa versión
-nueva no trae ninguno de estos datos (ni Instagram, ni LinkedIn, ni el link de
-agendamiento). Por lo tanto esto sigue pendiente: **después de recibir la
-versión nueva y hacer la migración de tecnología (punto 1)**, hay que
-agregar/corregir en el resultado final:
+Los links reales están aplicados en `src/`, centralizados en
+`src/data/enlaces.ts` (2026-09-16):
 
 - "Agendar consulta" → `https://p.encuadrado.com/p/dra-danielabustosriquelme`
   (sin `utm_*`/`fbclid`)
 - Instagram → `https://www.instagram.com/dra.danielabustos/`
 - LinkedIn → `https://www.linkedin.com/in/dra-daniela-bustos/`
 
-Los valores ya están confirmados por la clienta y documentados en la tabla de
-"Datos reales del cliente" más arriba — no hace falta volver a pedirlos, solo
-aplicarlos sobre la versión final.
+`site/` **no** los tiene: la versión que entregó la clienta trae
+`encuadrada.com` (un dominio distinto del real), `linkedin.com/in/PENDIENTE` e
+Instagram sin `www`. Eso es correcto y no hay que arreglarlo ahí: el prototipo
+es de revisión de contenido, y el producto es el que va a producción.
+
+### 11. Desincronizaciones de documentación pendientes
+
+- `site/CLAUDE.md` describe las ramas decorativas en rose (`#D89AA8`,
+  `#C1798C`), pero la versión nueva del prototipo las trae en verde salvia
+  (`#9DB894` sobre fondos oscuros, `#6E8A63` sobre claros) con grosores de
+  trazo variables. El producto sigue al markup, no a la tabla. Falta decidir si
+  se actualiza la tabla de marca o si el verde fue un accidente de la entrega.
+- `site/CLAUDE.md` también lista `#masterclass`, `#inscripcion`, `unlocked`,
+  `modalOpen` y `openFaq` en secciones y estados que no se corresponden con el
+  markup actual de `site/`.
+
+### 12. Estilos de los formularios de GHL
+
+El formulario es un `<iframe>` de otro origen: su apariencia **no se puede
+controlar desde `src/`**, porque el CSS no cruza esa frontera. Se controla
+pegando `docs/ghl-form-estilos.css` en el Custom CSS del builder de GHL.
+
+- Bloques 1 a 7 → los dos formularios.
+- Bloque 8 → **solo** el de la guía, que al tener un único campo recupera la
+  línea de correo más botón del prototipo.
+
+Pendiente de verificar en un navegador real: el alto que reservan los
+contenedores de los iframes (`150px` la guía, `560px` la masterclass) es una
+estimación. Los formularios llevan Cloudflare Turnstile, que impide
+comprobarlos en un navegador headless.
