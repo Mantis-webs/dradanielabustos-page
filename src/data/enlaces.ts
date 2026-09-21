@@ -14,8 +14,7 @@ export const INSTAGRAM = 'https://www.instagram.com/dra.danielabustos/'
 
 export const LINKEDIN = 'https://www.linkedin.com/in/dra-daniela-bustos/'
 
-/** TODO: sin confirmar por la clienta (README, "Correo de contacto"). */
-export const CORREO = 'contacto@dradanielabustos.com'
+export const CORREO = 'dra.dbustosr@gmail.com'
 
 /**
  * TODO (README punto 4, bloqueante): la página de política de privacidad no

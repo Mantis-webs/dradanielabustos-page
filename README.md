@@ -1,22 +1,22 @@
 # Dra. Daniela Bustos Riquelme — repositorio
 
-Ver `CLAUDE.md` para la descripción de los dos tracks del repo (`site/` prototipo
-vs `src/` producto). Este README concentra los pendientes activos del proyecto.
+Ver `CLAUDE.md` para la descripción del repo: una sola app en `src/`
+(producto final). El prototipo original quedó deprecado en
+`deprecated/site/` (2026-09-21), solo como referencia histórica. Este README
+concentra los pendientes activos del proyecto.
 
-## Datos reales del cliente (referencia — no depende del contenido de site/)
+## Datos reales del cliente (referencia)
 
-Esta información es de la clienta real, no contenido de prototipo. **Se
-mantiene acá aunque el contenido de `site/` se reemplace por una versión
-nueva** — es la fuente de verdad para cuando se haga la migración a `src/` y
-para conectar analítica/GHL más adelante.
+Esta información es de la clienta real. Es la fuente de verdad para conectar
+analítica/GHL y para el contenido de `src/`.
 
 | Dato | Valor | Estado |
 |---|---|---|
 | Instagram | https://www.instagram.com/dra.danielabustos/ | Confirmado por la clienta (2026-09-16) |
 | LinkedIn | https://www.linkedin.com/in/dra-daniela-bustos/ | Confirmado por la clienta (2026-09-16) |
 | Agendamiento (Encuadrado) | https://p.encuadrado.com/p/dra-danielabustosriquelme | Confirmado por la clienta (2026-09-16). Sin `utm_*`/`fbclid` — esos parámetros son solo para el link de la bio de Instagram, no para el sitio |
-| Correo de contacto | contacto@dradanielabustos.com | **Sin confirmar** — es un placeholder puesto en el prototipo, falta que la clienta lo confirme o entregue el real |
-| Dominio de producción | — | **Pendiente** — no se ha definido/entregado el dominio final del sitio |
+| Correo de contacto | dra.dbustosr@gmail.com | Confirmado por la clienta (2026-09-21) |
+| Dominio de producción | dradanielabustos.com | Confirmado por la clienta (2026-09-21) |
 | Google Search Console | — | Pendiente de acceso/credenciales |
 | Google Analytics | — | Pendiente de acceso/credenciales |
 | Microsoft Clarity | — | Pendiente de acceso/credenciales |
@@ -25,35 +25,29 @@ para conectar analítica/GHL más adelante.
 | GHL form ID — Lead Magnet (Guía gratuita) | `i5J4FVtDg6IGXxDinIBS` | Creado en GHL, embebido en `src/components/FormularioLeadMagnet.tsx` (2026-09-16) |
 | GHL form ID — Masterclass | `4OGCGkVkd06S7iChG3Ws` | Creado en GHL y embebido en `src/components/FormularioMasterclass.tsx` (2026-09-16) |
 
-A medida que lleguen más accesos o enlaces, se agregan filas a esta tabla —no
-se pierden aunque cambie `site/`.
+A medida que lleguen más accesos o enlaces, se agregan filas a esta tabla.
 
 ## Pendientes
 
-La versión nueva de `site/` que anticipaba este README **ya llegó** y está en
-el repo (2026-09-16). Los enlaces y accesos de conexión (Google, GHL, etc.) se
-van a ir entregando y se documentan acá a medida que lleguen. El repo es
-público; se decidió conscientemente no preocuparse por eso.
+Los enlaces y accesos de conexión (Google, GHL, etc.) se van a ir entregando y
+se documentan acá a medida que lleguen. El repo es público; se decidió
+conscientemente no preocuparse por eso.
 
 ### 1. Migración de tecnología — RESUELTO
 
-`site/index.html` y `site/curso/index.html` están portados a `src/` con React
-19, TypeScript, Tailwind 4 y Vite (2026-09-16). Se mantuvo React; Astro quedó
-descartado. Ruteo con `react-router-dom` entre `/` y `/curso`, con fallback SPA
-cubierto para los dos hosts posibles: `public/_redirects` para Cloudflare Pages
-y un `dist/404.html` generado en build para GitHub Pages.
+`deprecated/site/index.html` y `deprecated/site/curso/index.html` (ver punto
+14) fueron portados a `src/` con React 19, TypeScript, Tailwind 4 y Vite
+(2026-09-16). Se mantuvo React; Astro quedó descartado. Ruteo con
+`react-router-dom` entre `/` y `/curso`.
 
 Desvíos deliberados respecto del prototipo, documentados en el código:
 
 - **La sección `#faq` no se portó**, aunque la clienta la devolvió al
-  prototipo. Su markup sigue en `site/index.html` por si se decide recuperarla.
+  prototipo. Su markup sigue en `deprecated/site/index.html` por si se decide
+  recuperarla.
 - No se portaron tres medidas fijas heredadas del canvas de Claude Design que
   rompen el layout (ver `src/components/home/Enfoque.tsx`).
 - Se resolvió el menú hamburguesa, que en el prototipo estaba pendiente.
-
-**Ojo**: `site/CLAUDE.md` describe estados (`unlocked` para bloquear el VSL,
-`modalOpen` para un pop-up) que no existen en el markup ni en la lógica de
-ninguna de las dos vistas. No se portaron porque no hay nada que portar.
 
 ### 2. Agendamiento en la página principal (`/`) — RESUELTO, no hay form de GHL
 
@@ -77,7 +71,7 @@ en `src/components/FormularioMasterclass.tsx`, montado en
 - Apellido (requerido — separado de Nombre)
 - Correo electrónico (requerido)
 - WhatsApp / Teléfono — **requerido** (hoy está como opcional en el
-  placeholder de `site/curso/index.html`; se define como obligatorio para
+  placeholder de `deprecated/site/curso/index.html`; se define como obligatorio para
   poder hacer seguimiento por WhatsApp antes/después de la clase)
 - Checkbox de consentimiento de datos (ya existe en el placeholder —
   corregido 2026-09-16, antes decía por error que no existía. Texto actual:
@@ -121,14 +115,10 @@ parte, porque esa página no existe. En el producto es la constante
 `POLITICA_PRIVACIDAD` de `src/data/enlaces.ts`, hoy en `'#'`. Hace falta la
 página real antes de poder pedir este consentimiento en serio.
 
-### 5. Deploy — verificar Cloudflare Pages
+### 5. Deploy — RESUELTO
 
-El repo está conectado a Cloudflare Pages además del workflow
-`.github/workflows/deploy-pages.yml` (GitHub Pages). Nada de Cloudflare está
-versionado en el repo (config vive solo en el dashboard). Revisar la config de
-build ahí para que no se rompa con la migración a React/Astro, y definir
-destino final del deploy (Cloudflare, GitHub Pages, o ambos en paralelo
-prototipo/producto).
+**Confirmado 2026-09-21**: el deploy en Cloudflare Pages ya está funcionando
+correctamente. No hay nada pendiente acá.
 
 ### 6. Analítica y tracking
 
@@ -148,11 +138,11 @@ GHL (no solo conversiones de formulario). Tags de lead ya definidos arriba:
 Correr la skill de auditoría SEO instalada globalmente (`claude-seo-ai:audit`)
 sobre el sitio.
 
-### 9. Reseñas — reemplazar Trustpilot por scraping de Encuadrado
+### 9. Reseñas — reemplazar Trustpilot por scraping de Encuadrado — EN PROGRESO
 
-Se descarta la idea de usar Trustpilot para la sección de testimonios (hoy
-marcada en `site/index.html` como "pendiente · reemplazar por reseñas reales
-de Trustpilot"). En su lugar:
+**En trabajo desde 2026-09-21.** Se descarta la idea de usar Trustpilot para
+la sección de testimonios (hoy marcada en `deprecated/site/index.html` como "pendiente ·
+reemplazar por reseñas reales de Trustpilot"). En su lugar:
 
 - Traer los últimos 3 comentarios que aparecen en el header de
   `p.encuadrado.com/p/dra-danielabustosriquelme` mediante algún scraper.
@@ -180,18 +170,15 @@ Los links reales están aplicados en `src/`, centralizados en
 Instagram sin `www`. Eso es correcto y no hay que arreglarlo ahí: el prototipo
 es de revisión de contenido, y el producto es el que va a producción.
 
-### 11. Desincronizaciones de documentación pendientes
+### 11. Desincronizaciones de documentación — CERRADO
 
-- `site/CLAUDE.md` describe las ramas decorativas en rose (`#D89AA8`,
-  `#C1798C`), pero la versión nueva del prototipo las trae en verde salvia
-  (`#9DB894` sobre fondos oscuros, `#6E8A63` sobre claros) con grosores de
-  trazo variables. El producto sigue al markup, no a la tabla. Falta decidir si
-  se actualiza la tabla de marca o si el verde fue un accidente de la entrega.
-- `site/CLAUDE.md` también lista `#masterclass`, `#inscripcion`, `unlocked`,
-  `modalOpen` y `openFaq` en secciones y estados que no se corresponden con el
-  markup actual de `site/`.
+**Cerrado 2026-09-21**: ya se conversó con la clienta el tema de las ramas
+decorativas (rose vs. verde salvia) y las secciones/estados que
+`deprecated/site/CLAUDE.md` menciona sin correspondencia en el markup actual. No requiere
+más acción de nuestro lado. Queda documentado acá solo como registro
+histórico.
 
-### 12. Estilos de los formularios de GHL
+### 12. Estilos de los formularios de GHL — RESUELTO
 
 El formulario es un `<iframe>` de otro origen: su apariencia **no se puede
 controlar desde `src/`**, porque el CSS no cruza esa frontera. Se controla
@@ -201,10 +188,9 @@ pegando `docs/ghl-form-estilos.css` en el Custom CSS del builder de GHL.
 - Bloque 8 → **solo** el de la guía, que al tener un único campo recupera la
   línea de correo más botón del prototipo.
 
-Pendiente de verificar en un navegador real: el alto que reservan los
-contenedores de los iframes (`150px` la guía, `560px` la masterclass) es una
-estimación. Los formularios llevan Cloudflare Turnstile, que impide
-comprobarlos en un navegador headless.
+**Confirmado 2026-09-21**: se verificó en un navegador real. El alto de los
+contenedores de los iframes (`150px` la guía, `560px` la masterclass) funciona
+bien. No hay nada pendiente acá.
 
 ### 13. VSL y copy de `/curso` — pendiente
 
@@ -231,9 +217,9 @@ con la paleta de la Dra. Lo que falta es el video real.
   privacidad del punto 4. Vidstack acepta URLs de `youtube-nocookie.com`, así
   que la variante sin cookies es un cambio de `src`, no de arquitectura.
 - Decidir si el video se bloquea detrás del formulario. **Hoy no se bloquea, y
-  eso es fiel al prototipo**: `site/CLAUDE.md` describe un estado `unlocked`
+  eso es fiel al prototipo**: `deprecated/site/CLAUDE.md` describe un estado `unlocked`
   para ese fin, pero no existe ni en el markup ni en la lógica de
-  `site/curso/index.html`. Si se quiere el video bloqueado, es una
+  `deprecated/site/curso/index.html`. Si se quiere el video bloqueado, es una
   funcionalidad nueva que hay que pedir, no algo que se haya perdido al portar.
 
 Si más adelante se quiere salir de YouTube, Vidstack también reproduce MP4 y
@@ -246,3 +232,11 @@ antes de cualquier consulta.
 
 Mientras los dos huecos sigan abiertos, `/curso` no se le puede mostrar a nadie
 que no sea la clienta.
+
+### 14. Prototipo `site/` deprecado — RESUELTO
+
+**2026-09-21**: el repo dejó de ser dos tracks. `site/` se movió a
+`deprecated/site/` y se eliminó `.github/workflows/deploy-pages.yml` (ya no
+hay nada de GitHub Pages que publicar). Ahora es una sola app: `src/`. El
+contenido de `deprecated/site/` se conserva solo como referencia histórica —
+no se edita ni se vuelve a publicar. Ver `CLAUDE.md` actualizado.
