@@ -138,22 +138,34 @@ GHL (no solo conversiones de formulario). Tags de lead ya definidos arriba:
 Correr la skill de auditoría SEO instalada globalmente (`claude-seo-ai:audit`)
 sobre el sitio.
 
-### 9. Reseñas — reemplazar Trustpilot por scraping de Encuadrado — EN PROGRESO
+### 9. Reseñas — reemplazar Trustpilot por scraping de Encuadrado — RESUELTO
 
-**En trabajo desde 2026-09-21.** Se descarta la idea de usar Trustpilot para
-la sección de testimonios (hoy marcada en `deprecated/site/index.html` como "pendiente ·
-reemplazar por reseñas reales de Trustpilot"). En su lugar:
+**Resuelto 2026-09-21.** Se descartó Trustpilot para la sección de
+testimonios. Implementado:
 
-- Traer los últimos 3 comentarios que aparecen en el header de
-  `p.encuadrado.com/p/dra-danielabustosriquelme` mediante algún scraper.
-- El scraper extrae esos comentarios y reemplaza los testimonios placeholder
-  actuales de la página.
-- **Duda técnica abierta**: esto probablemente requiere un servidor
-  SSR/función serverless para hacer el scraping en el momento de renderizar
-  (o cacheado) — a revisar cómo resolverlo sin depender de un SSR completo.
-  Cloudflare (donde ya está conectado el repo, ver punto 5) podría resolverlo
-  vía Cloudflare Workers/Functions con un cron de refresco, pero no está
-  claro todavía — queda a investigar antes de decidir la arquitectura.
+- `functions/api/resenas.ts` — Cloudflare Pages Function. La página de
+  Encuadrado (`p.encuadrado.com/p/dra-danielabustosriquelme`) es Next.js con
+  SSR: el HTML que devuelve ya trae el texto de las reseñas embebido, así que
+  no hace falta browser headless ni SSR propio — alcanza con `fetch` +
+  parseo por regex de los bloques `data-slot="card-content"`.
+- El resultado se cachea con la Cache API de Cloudflare (`caches.default`,
+  24h) para no pegarle a Encuadrado en cada visita. Solo funciona en el
+  dominio custom de producción, no en previews `*.pages.dev` — ahí simplemente
+  no cachea. Plan free de Cloudflare: 100.000 requests/día en Pages
+  Functions, muy por encima del tráfico esperado.
+- `src/components/home/Testimonios.tsx` hace `fetch('/api/resenas')` al
+  montar y reemplaza el contenido si hay respuesta; si falla (Encuadrado
+  caído, cambio de markup, o `vite dev` donde la Function no corre) usa
+  `TESTIMONIOS_FALLBACK` en `src/data/contenido.ts` — las 3 reseñas reales
+  tomadas de Encuadrado el 2026-09-21, no un placeholder inventado.
+- Se quitó el aviso "Pendiente · reemplazar por reseñas reales de
+  Trustpilot" y el link a Trustpilot; el footer de la sección ahora enlaza a
+  Encuadrado.
+- **Riesgo conocido**: el parseo depende del markup actual de Encuadrado
+  (clases Tailwind tipo `line-clamp-2`, `font-semibold`, etc.). Si Encuadrado
+  cambia su HTML, el regex deja de matchear y el sitio cae al fallback
+  estático sin romperse — pero las reseñas dejan de actualizarse hasta
+  ajustar el parser.
 
 ### 10. Links tras la migración — RESUELTOS en el producto
 

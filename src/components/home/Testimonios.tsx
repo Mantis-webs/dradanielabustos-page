@@ -1,14 +1,30 @@
-import { TESTIMONIOS } from '../../data/contenido'
-import EtiquetaPendiente from '../ui/EtiquetaPendiente'
+import { useEffect, useState } from 'react'
+import { TESTIMONIOS_FALLBACK, type Resena } from '../../data/contenido'
+import { AGENDAMIENTO } from '../../data/enlaces'
 import Kicker from '../ui/Kicker'
 
-/**
- * TODO (README punto 9): los tres testimonios son placeholders. Se decidió
- * descartar Trustpilot y traer las últimas reseñas de Encuadrado por scraping,
- * pero la arquitectura (Worker con cron, SSR, o cacheado) está sin definir.
- * Hasta entonces se conserva el aviso "Pendiente" visible del prototipo.
- */
 export default function Testimonios() {
+  const [resenas, setResenas] = useState<Resena[]>(TESTIMONIOS_FALLBACK)
+
+  useEffect(() => {
+    let cancelado = false
+
+    fetch('/api/resenas')
+      .then((respuesta) => (respuesta.ok ? respuesta.json() : null))
+      .then((datos: { resenas: Resena[] } | null) => {
+        if (!cancelado && datos && datos.resenas.length > 0) {
+          setResenas(datos.resenas)
+        }
+      })
+      .catch(() => {
+        // Se mantiene TESTIMONIOS_FALLBACK
+      })
+
+    return () => {
+      cancelado = true
+    }
+  }, [])
+
   return (
     <section
       id="testimonios"
@@ -20,15 +36,12 @@ export default function Testimonios() {
           <h2 className="m-0 font-display text-[clamp(27px,3.2vw,44px)] leading-[1.14] font-normal text-pretty text-wine">
             Historias reales, cambios que se sienten.
           </h2>
-          <EtiquetaPendiente className="mt-[18px]">
-            Pendiente · reemplazar por reseñas reales de Trustpilot
-          </EtiquetaPendiente>
         </div>
 
         <div className="mt-[clamp(36px,4.5vw,56px)] grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5">
-          {TESTIMONIOS.map((texto) => (
+          {resenas.map((resena) => (
             <figure
-              key={texto}
+              key={resena.autor + resena.texto}
               className="m-0 grid gap-5 rounded-[3px] border border-wine/10 bg-white px-7 py-8"
             >
               <span
@@ -38,24 +51,40 @@ export default function Testimonios() {
                 “
               </span>
               <blockquote className="m-0 text-[14.5px] leading-[1.75] font-light text-pretty text-tinta">
-                {texto}
+                {resena.texto}
               </blockquote>
+              <div className="flex items-center justify-between gap-3">
+                <span
+                  aria-label={`${resena.rating} de 5 estrellas`}
+                  className="text-[13px] tracking-[2px] text-rose"
+                >
+                  <span aria-hidden="true">{'★'.repeat(resena.rating)}</span>
+                  <span aria-hidden="true" className="text-wine/15">
+                    {'★'.repeat(5 - resena.rating)}
+                  </span>
+                </span>
+                {resena.fecha && (
+                  <span className="font-label text-[10px] font-light tracking-[0.08em] text-tinta/55 uppercase">
+                    {resena.fecha}
+                  </span>
+                )}
+              </div>
               <figcaption className="font-label text-[10.5px] font-medium tracking-[0.16em] text-rose-oscuro uppercase">
-                Placeholder · Paciente
+                {resena.autor}
               </figcaption>
             </figure>
           ))}
         </div>
 
         <p className="mt-5 mb-0 font-label text-[13px] font-light text-[#1A1A1A]">
-          powered by{' '}
+          reseñas de{' '}
           <a
-            href="https://www.trustpilot.com/review/PENDIENTE-perfil-real"
+            href={AGENDAMIENTO}
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold text-[#1A1A1A] underline underline-offset-[3px]"
           >
-            Trustpilot
+            Encuadrado
           </a>{' '}
           — ver todas las reseñas
         </p>

@@ -52,10 +52,39 @@ export const INTEGRATIVO = [
   'Plan personalizado con acompañamiento en el tiempo.',
 ]
 
-export const TESTIMONIOS = [
-  'Llegué con fatiga y años de exámenes normales. Por primera vez alguien miró todo junto y me explicó qué estaba pasando.',
-  'Después de probar de todo, encontré un enfoque que considera mi salud completa. Hay un antes y un después en mi vida.',
-  'Profesional, cercana y muy humana. Se nota que le importa de verdad el bienestar de sus pacientes.',
+export interface Resena {
+  texto: string
+  autor: string
+  rating: number
+  fecha: string
+}
+
+/**
+ * Fallback si /api/resenas no responde (Encuadrado caído, cambio de markup,
+ * etc.). Son las 3 reseñas reales tomadas de p.encuadrado.com el 2026-09-21,
+ * no un placeholder inventado — ver README punto 9.
+ */
+export const TESTIMONIOS_FALLBACK: Resena[] = [
+  {
+    texto: 'Cómo siempre,! muy clara en la explicación,',
+    autor: 'Usuario anónimo',
+    rating: 5,
+    fecha: '',
+  },
+  {
+    texto:
+      'Excelente disposición. La Dra. Es la mejor, explica detalladamente cada situacion y sus recomendaciones y consejos son los mejores. La recomiendo muchísimo.',
+    autor: 'Anaiss I.',
+    rating: 5,
+    fecha: 'Agosto 2026',
+  },
+  {
+    texto:
+      'Excelente profesional, atiende con calma e integra diversos elementos en su evaluación y tratamiento.',
+    autor: 'Victoria M.',
+    rating: 5,
+    fecha: 'Agosto 2026',
+  },
 ]
 
 export const BULLETS_GUIA = [
