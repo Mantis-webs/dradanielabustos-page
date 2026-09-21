@@ -1,9 +1,24 @@
+import { MediaPlayer, MediaProvider } from '@vidstack/react'
+import {
+  DefaultVideoLayout,
+  defaultLayoutIcons,
+} from '@vidstack/react/player/layouts/default'
+
+import { VSL_ES_PLACEHOLDER, VSL_VIDEO_ID } from '../../data/enlaces'
 import { RamaVslDerecha, RamaVslIzquierda } from '../decor/RamasCurso'
 import BotonCta from '../ui/BotonCta'
+import EtiquetaPendiente from '../ui/EtiquetaPendiente'
 
 /**
- * TODO (site/CLAUDE.md, "Lo que está pendiente"): el marco 16:9 es un
- * placeholder. Falta el reproductor real del VSL.
+ * Reproductor del VSL.
+ *
+ * El video se sirve desde YouTube (no listado) y se envuelve con Vidstack para
+ * que los controles usen la paleta de la Dra. y no la de YouTube. Cambiar de
+ * proveedor más adelante es cambiar el `src`: Vidstack también acepta MP4 y HLS.
+ *
+ * El id del video vive en `data/enlaces.ts` junto al resto de los datos que
+ * dependen de la clienta. Hoy es un relleno con licencia CC-BY — ver el TODO
+ * de `VSL_VIDEO_ID`.
  *
  * Nota: el prototipo NO bloquea este video detrás de un formulario. El estado
  * `unlocked` que describe site/CLAUDE.md no existe en el markup ni en la lógica
@@ -26,17 +41,24 @@ export default function Vsl() {
           Mira la clase antes de decidir si quieres consultar.
         </h2>
 
-        <div className="mt-[clamp(30px,4vw,46px)] grid aspect-video content-center justify-items-center gap-[18px] overflow-hidden rounded-[3px] border border-rose/32 bg-wine-footer p-6">
-          <span className="grid h-[78px] w-[78px] place-items-center rounded-full border border-rose/60 bg-rose/15">
-            <span
-              aria-hidden="true"
-              className="ml-[5px] h-0 w-0 border-y-[11px] border-l-[18px] border-y-transparent border-l-blush"
-            />
-          </span>
-          <span className="font-label text-[11px] font-normal tracking-[0.22em] text-blush uppercase">
-            Pendiente · insertar reproductor del VSL
-          </span>
-        </div>
+        <MediaPlayer
+          className="vsl-player mt-[clamp(30px,4vw,46px)] w-full overflow-hidden"
+          title="Masterclass de la Dra. Daniela Bustos"
+          src={`youtube/${VSL_VIDEO_ID}`}
+          aspectRatio="16/9"
+          playsInline
+          load="visible"
+          posterLoad="visible"
+        >
+          <MediaProvider />
+          <DefaultVideoLayout icons={defaultLayoutIcons} />
+        </MediaPlayer>
+
+        {VSL_ES_PLACEHOLDER && (
+          <EtiquetaPendiente tono="rose" className="mt-5">
+            Pendiente · video de relleno, falta el VSL real
+          </EtiquetaPendiente>
+        )}
 
         <div className="mt-[clamp(28px,3.5vw,40px)] flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
           <BotonCta

@@ -26,3 +26,22 @@ export const CORREO = 'contacto@dradanielabustos.com'
 export const POLITICA_PRIVACIDAD = '#'
 
 export const AGENCIA = 'https://zabroso.cl'
+
+/**
+ * TODO (README punto 13, bloqueante): el VSL real NO existe todavía.
+ *
+ * `YE7VzlLtp-4` es "Big Buck Bunny" del canal oficial de Blender Foundation,
+ * licencia CC-BY 3.0. Es un relleno para poder montar y revisar el reproductor;
+ * no tiene ninguna relación con el contenido de la masterclass.
+ *
+ * Para publicar hay que:
+ *   1. Pedirle a la clienta el video real de la masterclass (~40 min).
+ *   2. Subirlo a YouTube como NO LISTADO desde la cuenta de la Dra.
+ *   3. Reemplazar VSL_VIDEO_ID por el id de ese video.
+ *   4. Poner VSL_ES_PLACEHOLDER en false para que desaparezca el aviso en la
+ *      página.
+ */
+export const VSL_VIDEO_ID = 'YE7VzlLtp-4'
+
+/** Mientras sea `true`, /curso muestra el aviso de que el video es de relleno. */
+export const VSL_ES_PLACEHOLDER = true

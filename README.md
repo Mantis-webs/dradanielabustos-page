@@ -85,7 +85,9 @@ en `src/components/FormularioMasterclass.tsx`, montado en
   acceso a la clase.")
 - Tag automático en GHL: `lead-masterclass`
 
-El contenido de la página —VSL y copy del hero— sigue pendiente: ver punto 13.
+El contenido de la página sigue pendiente: el reproductor del VSL ya está
+montado pero con un video de relleno, y el copy del hero es placeholder. Ver
+punto 13.
 
 ### 4. Form de la guía gratuita (home, sección `#guia`) — campos cerrados
 
@@ -210,22 +212,32 @@ La página de la masterclass está montada y navegable, pero su contenido es
 placeholder. Son dos huecos distintos, los dos visibles en la interfaz con su
 etiqueta "Pendiente":
 
-**El reproductor del VSL.** `src/components/curso/Vsl.tsx` dibuja un marco 16:9
-con un triángulo de play y el aviso "Pendiente · insertar reproductor del VSL".
-No hay video. Para cerrarlo hace falta:
+**El reproductor del VSL.** El reproductor YA está montado:
+`src/components/curso/Vsl.tsx` usa [Vidstack](https://vidstack.io)
+(`@vidstack/react`, MIT) sobre un video de YouTube, con los controles teñidos
+con la paleta de la Dra. Lo que falta es el video real.
 
-- El video en sí y dónde va a estar alojado. La elección importa más de lo que
-  parece: un embed de YouTube o Vimeo instala cookies de terceros en cuanto
-  carga, lo que engancha con la política de privacidad del punto 4. Si se
-  quiere evitar, existen las variantes sin cookies (`youtube-nocookie.com`) o
-  alojarlo en un proveedor que no rastree.
+- **Falta el video de la masterclass.** Hoy `VSL_VIDEO_ID` en
+  `src/data/enlaces.ts` apunta a `YE7VzlLtp-4` — "Big Buck Bunny" del canal
+  oficial de Blender Foundation, licencia CC-BY 3.0. Es un relleno para poder
+  revisar el reproductor; **no tiene ninguna relación con el contenido de la
+  clase**. Para cerrar el punto: pedirle el video a la clienta, subirlo a
+  YouTube como **no listado** desde su cuenta, reemplazar `VSL_VIDEO_ID` y
+  poner `VSL_ES_PLACEHOLDER` en `false` para que desaparezca el aviso de la
+  página.
 - Confirmar la duración: el texto dice "Masterclass gratuita · 40 minutos" y
   ese dato viene del prototipo, sin confirmar con la clienta.
+- Cookies de terceros: el embed de YouTube engancha con la política de
+  privacidad del punto 4. Vidstack acepta URLs de `youtube-nocookie.com`, así
+  que la variante sin cookies es un cambio de `src`, no de arquitectura.
 - Decidir si el video se bloquea detrás del formulario. **Hoy no se bloquea, y
   eso es fiel al prototipo**: `site/CLAUDE.md` describe un estado `unlocked`
   para ese fin, pero no existe ni en el markup ni en la lógica de
   `site/curso/index.html`. Si se quiere el video bloqueado, es una
   funcionalidad nueva que hay que pedir, no algo que se haya perdido al portar.
+
+Si más adelante se quiere salir de YouTube, Vidstack también reproduce MP4 y
+HLS: cambia el `src`, no el componente.
 
 **El copy del hero.** `src/components/curso/HeroCurso.tsx` muestra "Titular de
 la masterclass" y una bajada que empieza con "Bajada pendiente". Falta el

@@ -1,6 +1,14 @@
 @import 'tailwindcss';
 
 /*
+ * Reproductor del VSL (/curso). Los @import van aquí y no en el componente
+ * para fijar el orden de cascada: primero el tema de Vidstack, luego nuestras
+ * variables de marca, que lo sobrescriben.
+ */
+@import '@vidstack/react/player/styles/default/theme.css';
+@import '@vidstack/react/player/styles/default/layouts/video.css';
+
+/*
  * Tokens de marca. Fuente: site/CLAUDE.md, tabla "Marca".
  * Excepción documentada: --color-rama / --color-rama-oscura son el verde salvia
  * que la clienta introdujo en la versión nueva del prototipo (2026-09-16) para
@@ -60,4 +68,24 @@
   input::placeholder {
     color: #b79aa1;
   }
+}
+
+/*
+ * Tema de marca del reproductor del VSL.
+ * Solo se reasignan variables que Vidstack ya expone (verificadas en
+ * player/styles/default/*.css); no se pisan selectores internos, que sí podrían
+ * romperse al actualizar el paquete.
+ */
+.vsl-player {
+  --media-brand: var(--color-rose);
+  --media-focus-ring-color: var(--color-rose);
+  --media-font-family: var(--font-label);
+  --media-controls-color: var(--color-blush);
+  --media-slider-track-fill-bg: var(--color-rose);
+  --media-slider-thumb-bg: var(--color-blush);
+  --media-tooltip-bg: var(--color-wine-footer);
+
+  border: 1px solid color-mix(in srgb, var(--color-rose) 32%, transparent);
+  border-radius: 3px;
+  background: var(--color-wine-footer);
 }
