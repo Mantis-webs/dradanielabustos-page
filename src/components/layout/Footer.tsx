@@ -1,10 +1,53 @@
 import { Link } from 'react-router-dom'
 import logoWordmark from '../../assets/img/logo-wordmark-blanco.png'
-import { AGENCIA, CORREO, INSTAGRAM, LINKEDIN } from '../../data/enlaces'
+import { CORREO, INSTAGRAM, LINKEDIN } from '../../data/enlaces'
 import RamaFooter from '../decor/RamaFooter'
 import type { EnlaceNav } from './Header'
 
 const ENLACE = 'text-blush/82 hover:text-rose'
+
+function IconoInstagram({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+    </svg>
+  )
+}
+
+function IconoLinkedIn({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="8" cy="8.5" r="1.1" fill="currentColor" />
+      <path d="M8 11.5v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="M12 17.5v-3.6c0-1.3 1-2.4 2.2-2.4s2 1 2 2.3v3.7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M12 11.5v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function IconoCorreo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M4 6.5l8 6.2 8-6.2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
 
 /**
  * Footer compartido. Solo cambia la columna de navegación entre / y /curso.
@@ -56,27 +99,27 @@ export default function Footer({ enlaces }: { enlaces: EnlaceNav[] }) {
               href={INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-light text-blush/86 hover:text-rose"
+              className="inline-flex items-center gap-2 text-sm font-light text-blush/86 hover:text-rose"
             >
+              <IconoInstagram className="size-4 shrink-0" />
               Instagram @dra.danielabustos
             </a>
             <a
               href={LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-light text-blush/86 hover:text-rose"
+              className="inline-flex items-center gap-2 text-sm font-light text-blush/86 hover:text-rose"
             >
+              <IconoLinkedIn className="size-4 shrink-0" />
               LinkedIn
             </a>
             <a
               href={`mailto:${CORREO}`}
-              className="text-sm font-light text-blush/86 hover:text-rose"
+              className="inline-flex items-center gap-2 text-sm font-light text-blush/86 hover:text-rose"
             >
+              <IconoCorreo className="size-4 shrink-0" />
               {CORREO}
             </a>
-            <p className="m-0 mt-0.5 text-[10.5px] font-light tracking-[0.02em] text-blush/50">
-              Pendiente · confirmar correo real
-            </p>
           </div>
         </div>
 
@@ -84,22 +127,14 @@ export default function Footer({ enlaces }: { enlaces: EnlaceNav[] }) {
           <p className="m-0">
             © 2026 Dra. Daniela Bustos Riquelme. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-[14px]">
+          <div className="flex items-center gap-[6px]">
             <span>Powered by</span>
-            <a
-              href={AGENCIA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-[3px] border border-dashed border-rose/40 px-[14px] py-[7px] font-label text-[10.5px] tracking-[0.12em] text-blush/82 uppercase hover:border-rose hover:text-rose"
-            >
-              Logo Zabroso
-            </a>
-            {/* TODO: la agencia no entregó el enlace ni el logo real. */}
+            {/* TODO: la agencia no entregó el enlace real de MK Agencia. */}
             <a
               href="#"
-              className="inline-flex items-center justify-center rounded-[3px] border border-dashed border-rose/40 px-[14px] py-[7px] font-label text-[10.5px] tracking-[0.12em] text-blush/82 uppercase hover:border-rose hover:text-rose"
+              className="text-blush/82 hover:text-rose"
             >
-              Logo MK Agencia
+              MK Agencia.cl
             </a>
           </div>
         </div>
