@@ -182,7 +182,7 @@ export function RamaEnfoqueIzquierda() {
       viewBox="0 0 300 920"
       aria-hidden="true"
       preserveAspectRatio="xMinYMax meet"
-      className="pointer-events-none absolute bottom-[3%] left-0 z-0 h-[min(66%,700px)] w-auto opacity-85"
+      className="pointer-events-none absolute bottom-[3%] left-0 z-0 hidden h-[min(66%,700px)] w-auto opacity-85 md:block"
     >
       <g fill="none" stroke={OSCURO} strokeLinecap="round" strokeLinejoin="round">
         <path d="M0 902 C 52 884, 88 852, 112 806" strokeWidth="3.68" />
