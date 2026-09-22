@@ -127,11 +127,12 @@ correctamente. No hay nada pendiente acá.
 - Conectar Microsoft Clarity
 - Instalar Meta Pixel
 
-### 7. Tags de Go High Level para métricas
+### 7. Tags de Go High Level para métricas — RESUELTO
 
-Instalar tracking tag/pixel de GHL para poder ver métricas de la página desde
-GHL (no solo conversiones de formulario). Tags de lead ya definidos arriba:
-`lead-guia`, `lead-masterclass` (falta el de agendamiento, ver punto 2).
+**Resuelto 2026-09-22.** Script de tracking de GHL instalado en el `<head>`
+de `index.html` (`external-tracking.js`, `data-tracking-id`). Tags de lead
+ya definidos arriba: `lead-guia`, `lead-masterclass` (falta el de
+agendamiento, ver punto 2 — no aplica porque no hay form de GHL para eso).
 
 ### 8. Auditoría SEO
 
