@@ -23,8 +23,9 @@ export type EnlaceCta = {
 const ENLACE = 'text-wine hover:text-rose-oscuro'
 
 /**
- * Header sticky compartido. La variante `home` lleva el lockup completo con la
- * bajada "Medicina Integrativa"; la variante `curso` solo el nombre.
+ * Header sticky compartido. Mismo lockup completo (ícono + nombre + bajada
+ * "Medicina Integrativa") en las dos variantes; solo cambia el destino del
+ * logo: ancla al hero en la home, link a "/" en /curso.
  */
 export default function Header({
   variante,
@@ -38,27 +39,30 @@ export default function Header({
   const [menuAbierto, setMenuAbierto] = useState(false)
   const esHome = variante === 'home'
 
+  const lockup = (
+    <>
+      <img src={logoIcono} alt="" className="block h-10 w-10" />
+      <span className="block leading-none">
+        <span className="block font-display text-[19px] font-medium tracking-[0.04em] text-wine">
+          Dra. Daniela Bustos
+        </span>
+        <span className="mt-[5px] block font-label text-[9.5px] font-light tracking-[0.3em] text-rose-oscuro uppercase">
+          Medicina Integrativa
+        </span>
+      </span>
+    </>
+  )
+
   return (
     <>
       <header className="sticky top-0 z-50 flex items-center justify-between gap-6 border-b border-wine/10 bg-blush/92 px-[clamp(20px,5vw,72px)] py-4 backdrop-blur-[10px]">
         {esHome ? (
           <a href="#inicio" className="flex shrink-0 items-center gap-3">
-            <img src={logoIcono} alt="" className="block h-10 w-10" />
-            <span className="block leading-none">
-              <span className="block font-display text-[19px] font-medium tracking-[0.04em] text-wine">
-                Dra. Daniela Bustos
-              </span>
-              <span className="mt-[5px] block font-label text-[9.5px] font-light tracking-[0.3em] text-rose-oscuro uppercase">
-                Medicina Integrativa
-              </span>
-            </span>
+            {lockup}
           </a>
         ) : (
           <Link to="/" className="flex shrink-0 items-center gap-3">
-            <img src={logoIcono} alt="" className="block h-[34px] w-[34px]" />
-            <span className="font-display text-[17px] font-medium tracking-[0.02em] text-wine">
-              Dra. Daniela Bustos
-            </span>
+            {lockup}
           </Link>
         )}
 
