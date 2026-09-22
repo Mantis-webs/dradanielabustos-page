@@ -10,20 +10,20 @@ export default function RamaFooter() {
       <path
         d="M300 120 C 236 118, 182 100, 130 70"
         fill="none"
-        stroke="#9DB894"
+        stroke="var(--color-rama)"
         strokeWidth="2.98"
         strokeLinecap="round"
       />
       <path
         d="M130 70 C 100 52, 74 44, 44 40"
         fill="none"
-        stroke="#9DB894"
+        stroke="var(--color-rama)"
         strokeWidth="0.88"
         strokeLinecap="round"
       />
-      <circle cx="44" cy="40" r="2.2" fill="#9DB894" />
-      <circle cx="130" cy="70" r="1.5" fill="#9DB894" />
-      <circle cx="214" cy="108" r="1.1" fill="#9DB894" />
+      <circle cx="44" cy="40" r="2.2" fill="var(--color-rama)" />
+      <circle cx="130" cy="70" r="1.5" fill="var(--color-rama)" />
+      <circle cx="214" cy="108" r="1.1" fill="var(--color-rama)" />
     </svg>
   )
 }

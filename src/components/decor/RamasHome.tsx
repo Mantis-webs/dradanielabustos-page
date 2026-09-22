@@ -6,8 +6,8 @@ import type { Ref } from 'react'
  * versión del prototipo del 2026-09-16.
  */
 
-const OSCURO = '#6E8A63' // sobre fondos claros
-const CLARO = '#9DB894' // sobre fondos wine
+const OSCURO = 'var(--color-rama-oscura)' // sobre fondos claros
+const CLARO = 'var(--color-rama)' // sobre fondos wine
 
 /** Hero: rama grande de la esquina inferior derecha. Se mueve con el parallax. */
 export function RamasHero({ ref }: { ref: Ref<SVGSVGElement> }) {
@@ -76,7 +76,7 @@ export function PuntosHero({ ref }: { ref: Ref<HTMLDivElement> }) {
         preserveAspectRatio="xMidYMid slice"
         className="block h-full w-full"
       >
-        <g fill="#D89AA8">
+        <g fill="var(--color-rose)">
           <circle cx="120" cy="120" r="2.4" opacity="0.4" />
           <circle cx="286" cy="58" r="1.8" opacity="0.3" />
           <circle cx="64" cy="430" r="2" opacity="0.28" />

@@ -14,30 +14,43 @@
  * que la clienta introdujo en la versión nueva del prototipo (2026-09-16) para
  * las ramas decorativas, reemplazando al rose. Todavía no está reflejado en la
  * tabla de site/CLAUDE.md.
+ *
+ * --color-wine, --color-rose, --color-rose-oscuro, --color-blush y
+ * --color-rama son los 5 tokens que SelectorColores.tsx deja editar en vivo.
+ * El resto de los tonos de marca (los "oscuro"/"pastilla"/"panel"/"trazo") se
+ * calculan con color-mix() a partir de esos 5, en vez de hex propio, para que
+ * la botonera de colores alcance a toda la página y no solo al token exacto
+ * que edita. Los porcentajes están ajustados para reproducir el hex anterior
+ * con los valores de marca por defecto.
+ *
+ * --color-tinta y sus variantes quedan afuera de este cálculo a propósito:
+ * no son "wine oscurecido" en ninguna proporción lineal, y como son el color
+ * del cuerpo de texto conviene que se mantengan neutros y legibles aunque se
+ * pruebe una paleta muy distinta.
  */
 @theme {
   --color-wine: #6b1f30;
-  --color-wine-oscuro: #4a121f;
-  --color-wine-footer: #350d16;
+  --color-wine-oscuro: color-mix(in srgb, var(--color-wine) 64%, black);
+  --color-wine-footer: color-mix(in srgb, var(--color-wine) 46%, black);
   --color-rose: #d89aa8;
   --color-rose-oscuro: #8a4356;
-  --color-rose-trazo: #c1798c;
+  --color-rose-trazo: color-mix(in srgb, var(--color-rose) 84%, black);
   --color-blush: #f7e8ec;
-  --color-blush-oscuro: #efd9df;
+  --color-blush-oscuro: color-mix(in srgb, var(--color-blush) 95%, black);
 
   /* Ramas decorativas — verde salvia */
   --color-rama: #9db894; /* sobre fondos oscuros */
-  --color-rama-oscura: #6e8a63; /* sobre fondos claros */
+  --color-rama-oscura: color-mix(in srgb, var(--color-rama) 71%, black); /* sobre fondos claros */
 
   /* Neutros y apoyos derivados del prototipo */
   --color-tinta: #3a2028; /* cuerpo de texto principal */
   --color-tinta-suave: #4a3038; /* párrafos secundarios */
   --color-tinta-tenue: #7a5a62; /* notas al pie, columna "convencional" */
   --color-tinta-form: #55393f; /* labels de checkbox */
-  --color-blush-panel: #f2e3e7; /* panel enfoque convencional */
-  --color-blush-panel-claro: #fbf2f4; /* panel enfoque integrativo */
-  --color-blush-pastilla: #e9c4ce; /* chips de la presentación */
-  --color-wine-pastilla: #5a1826; /* texto de los chips */
+  --color-blush-panel: color-mix(in srgb, var(--color-blush) 98%, black); /* panel enfoque convencional */
+  --color-blush-panel-claro: color-mix(in srgb, var(--color-blush) 55%, white); /* panel enfoque integrativo */
+  --color-blush-pastilla: color-mix(in srgb, var(--color-rose) 45%, var(--color-blush)); /* chips de la presentación */
+  --color-wine-pastilla: color-mix(in srgb, var(--color-wine) 80%, black); /* texto de los chips */
 
   --font-display: 'Playfair Display', serif;
   --font-label: Montserrat, sans-serif;
@@ -88,4 +101,20 @@
   border: 1px solid color-mix(in srgb, var(--color-rose) 32%, transparent);
   border-radius: 3px;
   background: var(--color-wine-footer);
+}
+
+/*
+ * Fondo del hero de la home. Antes tenía tres stops en hex fijo — no seguían
+ * a --color-wine cuando se probaba otra paleta desde SelectorColores. Se
+ * recalculan con color-mix() a partir de --color-wine para que la botonera
+ * también lo alcance; los porcentajes están ajustados para reproducir el
+ * hex original con el wine por defecto (#6b1f30).
+ */
+.hero-fondo {
+  background: radial-gradient(
+    120% 100% at 78% 12%,
+    color-mix(in srgb, var(--color-wine) 85%, white) 0%,
+    color-mix(in srgb, var(--color-wine) 85%, black) 45%,
+    color-mix(in srgb, var(--color-wine) 60%, black) 100%
+  );
 }

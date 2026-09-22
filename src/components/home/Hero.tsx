@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate overflow-hidden bg-[radial-gradient(120%_100%_at_78%_12%,#7A2436_0%,#5C1A29_45%,#4A121F_100%)] px-[clamp(20px,5vw,72px)] pt-[clamp(72px,11vh,132px)] pb-[clamp(84px,12vh,140px)]"
+      className="hero-fondo relative isolate overflow-hidden px-[clamp(20px,5vw,72px)] pt-[clamp(72px,11vh,132px)] pb-[clamp(84px,12vh,140px)]"
     >
       <div
         ref={hojaRef}
@@ -57,7 +57,7 @@ export default function Hero() {
               to="/curso"
               className="px-[30px] py-4 text-xs font-normal tracking-[0.16em]"
             >
-              Masterclass gratuita
+              Curso
             </BotonCta>
           </div>
         </div>

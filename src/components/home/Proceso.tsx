@@ -62,8 +62,8 @@ export default function Proceso() {
                 className="mx-auto mb-[22px] block h-14 w-14"
               >
                 <g
+                  className="stroke-wine"
                   fill="none"
-                  stroke="#6B1F30"
                   strokeWidth="1.3"
                   strokeLinecap="round"
                   strokeLinejoin="round"

@@ -2,8 +2,8 @@
  * Ramas decorativas de /curso. Transcritas de site/curso/index.html.
  */
 
-const OSCURO = '#6E8A63' // sobre fondos claros
-const CLARO = '#9DB894' // sobre fondos wine
+const OSCURO = 'var(--color-rama-oscura)' // sobre fondos claros
+const CLARO = 'var(--color-rama)' // sobre fondos wine
 
 /** Hero de la masterclass: rama vertical del borde derecho. */
 export function RamaHeroCurso() {
