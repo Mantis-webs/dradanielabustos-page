@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import SelectorColores from './components/ui/SelectorColores'
 import Curso from './routes/Curso'
 import Home from './routes/Home'
 
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/curso" element={<Curso />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <SelectorColores />
     </>
   )
 }
