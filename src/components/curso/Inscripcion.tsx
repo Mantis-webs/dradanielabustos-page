@@ -21,7 +21,7 @@ export default function Inscripcion() {
       <RamaInscripcion />
       <div className="relative z-10 mx-auto grid max-w-[1000px] grid-cols-1 items-center gap-[clamp(32px,5vw,64px)] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
         <div className="min-w-0">
-          <Kicker className="mb-4">Masterclass gratuita</Kicker>
+          <Kicker className="mb-4">Curso</Kicker>
           <h2 className="m-0 font-display text-[clamp(27px,3.4vw,44px)] leading-[1.14] font-normal text-pretty text-wine">
             Inscríbete y recibe el acceso en tu correo.
           </h2>

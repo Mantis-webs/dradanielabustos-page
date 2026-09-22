@@ -24,7 +24,7 @@ const NAV: EnlaceNav[] = [
   { label: 'Quién soy', href: '#enfoque' },
   { label: 'Enfoque', href: '#comparativa' },
   { label: 'Reseñas', href: '#testimonios' },
-  { label: 'Masterclass', to: '/curso', destacado: true },
+  { label: 'Curso', to: '/curso', destacado: true },
 ]
 
 const CTA: EnlaceCta = {
@@ -37,7 +37,7 @@ const NAV_FOOTER: EnlaceNav[] = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Quién soy', href: '#enfoque' },
   { label: 'Reseñas', href: '#testimonios' },
-  { label: 'Masterclass', to: '/curso' },
+  { label: 'Curso', to: '/curso' },
 ]
 
 export default function Home() {

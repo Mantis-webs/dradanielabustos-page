@@ -40,7 +40,7 @@ export default function Cierre() {
             to="/curso"
             className="px-8 py-[17px] text-xs font-normal tracking-[0.16em]"
           >
-            Masterclass gratuita
+            Curso
           </BotonCta>
         </div>
         <p className="mt-[22px] mb-0 font-label text-[11px] font-light tracking-[0.14em] text-rose/85 uppercase">

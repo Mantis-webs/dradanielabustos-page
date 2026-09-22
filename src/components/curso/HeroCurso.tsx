@@ -19,7 +19,7 @@ export default function HeroCurso() {
           Pendiente · definir copy del hero
         </EtiquetaPendiente>
         <h1 className="m-0 font-display text-[clamp(34px,5.4vw,68px)] leading-[1.08] font-normal tracking-[-0.015em] text-pretty text-white">
-          Titular de la masterclass
+          Titular del curso
         </h1>
         <p className="mx-auto mt-[26px] mb-0 max-w-[50ch] text-[clamp(15px,1.35vw,17px)] leading-[1.78] font-light text-pretty text-white/85">
           Bajada pendiente. Aquí va la promesa de la clase: qué se lleva quien la

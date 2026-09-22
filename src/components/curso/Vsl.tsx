@@ -35,7 +35,7 @@ export default function Vsl() {
 
       <div className="relative mx-auto max-w-[980px] text-center">
         <p className="m-0 mb-4 font-label text-[11px] font-light tracking-[0.28em] text-rose uppercase">
-          Masterclass gratuita · 40 minutos
+          Curso · 40 minutos
         </p>
         <h2 className="mx-auto my-0 max-w-[22ch] font-display text-[clamp(26px,3vw,40px)] leading-[1.16] font-normal text-pretty text-white">
           Mira la clase antes de decidir si quieres consultar.
@@ -43,7 +43,7 @@ export default function Vsl() {
 
         <MediaPlayer
           className="vsl-player mt-[clamp(30px,4vw,46px)] w-full overflow-hidden"
-          title="Masterclass de la Dra. Daniela Bustos"
+          title="Curso de la Dra. Daniela Bustos"
           src={`youtube/${VSL_VIDEO_ID}`}
           aspectRatio="16/9"
           playsInline
@@ -69,9 +69,6 @@ export default function Vsl() {
           >
             Quiero el material completo
           </BotonCta>
-          <span className="font-label text-[11px] font-light tracking-[0.14em] text-rose/90 uppercase">
-            Sin costo · Sin compromiso
-          </span>
         </div>
       </div>
     </section>
