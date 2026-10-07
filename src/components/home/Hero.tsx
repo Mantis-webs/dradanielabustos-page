@@ -34,13 +34,20 @@ export default function Hero() {
             Medicina integrativa · Psiconeuroinmunología clínica
           </p>
           <h1 className="m-0 font-display text-[clamp(38px,5.4vw,74px)] leading-[1.06] font-normal tracking-[-0.015em] text-pretty text-white">
-            Cuando tu cuerpo no responde y nadie te explica por qué.
+            Medicina Integrativa: entender tu salud como un todo.
           </h1>
-          <p className="mt-[30px] mb-0 max-w-[46ch] text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-light text-pretty text-white/86">
-            Fatiga que no se va, digestión alterada, inflamación, ansiedad, sueño
-            roto. No son síntomas sueltos: son un sistema pidiendo atención.
-            Conecto sistema nervioso, inmunidad, hábitos y contexto de vida para
-            llegar a la causa raíz.
+          <p className="mt-[30px] mb-0 max-w-[46ch] text-[clamp(16px,1.3vw,18px)] leading-[1.6] font-medium text-pretty text-white">
+            ¿Sientes que algo no está bien, pero no encuentras una explicación?
+          </p>
+          <p className="mt-4 mb-0 max-w-[46ch] text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-light text-pretty text-white/86">
+            Mi objetivo es ayudarte a comprender qué puede estar detrás de tus
+            síntomas y cómo se relacionan distintos sistemas de tu organismo,
+            para construir una estrategia de salud personalizada, integral y
+            basada en evidencia científica.
+          </p>
+          <p className="mt-5 mb-0 max-w-[52ch] font-label text-[clamp(11px,0.9vw,12px)] leading-[1.9] font-light tracking-[0.16em] text-white/90 uppercase">
+            Salud intestinal · metabolismo · inflamación · energía · salud
+            hormonal · estilo de vida
           </p>
           <div className="mt-[42px] flex flex-wrap items-center gap-x-5 gap-y-4">
             <BotonCta
