@@ -46,17 +46,11 @@ export const CHIPS_ENFOQUE = [
 ]
 
 export const CONVENCIONAL = [
-  'Se enfoca en el síntoma, no en la causa.',
-  'Cada especialista mira su órgano por separado.',
-  'Rangos de laboratorio amplios: "normal" aunque no te sientas bien.',
-  'Consultas cortas, poco espacio para tu historia.',
+  'Rangos de laboratorios amplios, indican presencia o no de patología.',
 ]
 
 export const INTEGRATIVO = [
-  'Busca la causa raíz de lo que estás sintiendo.',
-  'Conecta sistema nervioso, inmunidad, hábitos y contexto de vida.',
-  'Lee tus exámenes buscando el rango funcional óptimo.',
-  'Plan personalizado con acompañamiento en el tiempo.',
+  'Conecta sistema nervioso, digestivo, inmune, hábito y contexto de vida.',
 ]
 
 export interface Resena {

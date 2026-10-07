@@ -18,7 +18,7 @@ export default function Comparativa() {
         <div className="mx-auto max-w-[660px] text-center">
           <Kicker className="mb-4">Dos enfoques, una gran diferencia</Kicker>
           <h2 className="m-0 font-display text-[clamp(27px,3.2vw,44px)] leading-[1.14] font-normal text-pretty text-wine">
-            No solo tratamos síntomas, abordamos el origen.
+            No solo trato síntomas, abordo el origen.
           </h2>
         </div>
 
