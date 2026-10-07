@@ -23,11 +23,11 @@ export default function Guia() {
         <div className="order-2 min-w-0 min-[900px]:order-1">
           <Kicker className="mb-4">Guía gratuita</Kicker>
           <h2 className="m-0 font-display text-[clamp(26px,3.2vw,42px)] leading-[1.14] font-normal text-pretty text-wine">
-            Empieza a ordenar tu caso, hoy.
+            ¡Empieza a ordenar tu caso, hoy!
           </h2>
           <p className="mt-[22px] mb-0 max-w-[44ch] text-[15px] leading-[1.76] font-light text-pretty text-tinta-suave">
-            Una guía breve para llegar a tu próxima consulta —conmigo o con quien
-            te trate— con la información ordenada y las preguntas correctas.
+            Una guía breve para llegar a tu próxima consulta con la información
+            ordenada y las preguntas correctas.
           </p>
           <ul className="mt-[26px] mb-0 grid list-none gap-3 p-0 text-sm leading-[1.6] font-light text-tinta-suave">
             {BULLETS_GUIA.map((bullet) => (
