@@ -27,20 +27,21 @@ export const POLITICA_PRIVACIDAD = '#'
 export const AGENCIA = 'https://zabroso.cl'
 
 /**
- * TODO (README punto 13, bloqueante): el VSL real NO existe todavía.
+ * TODO (README punto 13, bloqueante): el reel / short real NO existe todavía.
  *
- * `YE7VzlLtp-4` es "Big Buck Bunny" del canal oficial de Blender Foundation,
- * licencia CC-BY 3.0. Es un relleno para poder montar y revisar el reproductor;
- * no tiene ninguna relación con el contenido de la masterclass.
+ * `pU6_t5tU3hQ` es un Short de las Bibliothèques UdeM, usado solo como relleno
+ * para montar y revisar el reproductor 9:16; su licencia no está verificada,
+ * así que NO se debe publicar con él.
  *
  * Para publicar hay que:
- *   1. Pedirle a la clienta el video real de la masterclass (~40 min).
- *   2. Subirlo a YouTube como NO LISTADO desde la cuenta de la Dra.
+ *   1. Pedirle a la clienta el reel / short real.
+ *   2. Subirlo a YouTube (Short o NO LISTADO) desde la cuenta de la Dra.
+ *      Vidstack no reproduce Instagram.
  *   3. Reemplazar VSL_VIDEO_ID por el id de ese video.
  *   4. Poner VSL_ES_PLACEHOLDER en false para que desaparezca el aviso en la
  *      página.
  */
-export const VSL_VIDEO_ID = 'YE7VzlLtp-4'
+export const VSL_VIDEO_ID = 'pU6_t5tU3hQ'
 
 /** Mientras sea `true`, /curso muestra el aviso de que el video es de relleno. */
 export const VSL_ES_PLACEHOLDER = true
