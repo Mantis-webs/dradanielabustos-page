@@ -51,20 +51,36 @@ export default function Enfoque() {
           </h2>
           <div className="mt-7 grid max-w-[54ch] gap-[18px] text-[15px] leading-[1.78] font-light text-tinta-suave">
             <p className="m-0">
-              Soy la Dra. Daniela Bustos Riquelme, médica especializada en
-              medicina integrativa con enfoque en psiconeuroinmunología clínica.
-              Trabajo entre Barcelona y Chile.
+              Soy Daniela Bustos, médica integrativa y especialista en{' '}
+              <strong className="font-semibold">
+                Psiconeuroinmunología Clínica
+              </strong>
+              , con formación en Nutrición y Alimentación, Medicina
+              Biorreguladora, Medicina Funcional y Medicina del Estilo de Vida.
             </p>
             <p className="m-0">
-              La mayoría de mis pacientes llega después de años de exámenes
-              normales y respuestas parciales. Cada síntoma se trató por
-              separado, y ninguno se fue. Mi trabajo es leerlos juntos: qué le
-              está pasando a tu sistema nervioso, a tu inmunidad, a tus hábitos y
-              al momento de vida que estás atravesando.
+              Mi forma de entender la medicina también nació de una búsqueda
+              personal para sanar mis migrañas y ayudar a mis pacientes a
+              entender sus síntomas persistentes a pesar de muchas consultas y
+              exámenes aparentemente normales.
             </p>
             <p className="m-0">
-              De ahí sale un plan que se sostiene en el tiempo, no un alivio que
-              dura mientras dura el tratamiento.
+              Esa búsqueda transformó mi manera de entender la medicina.
+            </p>
+            <p className="m-0">
+              Aprendí que muchas veces necesitamos dejar de mirar solamente el
+              órgano o el síntoma y empezar a preguntarnos:
+            </p>
+            <p className="m-0 font-normal text-tinta">
+              <strong className="font-semibold">
+                ¿Qué está pasando con la persona completa?
+              </strong>
+            </p>
+            <p className="m-0">Esa pregunta guía mi forma de trabajar.</p>
+            <p className="m-0">
+              Mi objetivo es que puedas comprender mejor lo que ocurre en tu
+              cuerpo, identificar qué factores pueden estar influyendo y contar
+              con herramientas concretas para cuidar tu salud a largo plazo.
             </p>
           </div>
 
@@ -99,10 +115,11 @@ export default function Enfoque() {
           >
             “
           </span>
-          <blockquote className="m-0 max-w-[22ch] font-display text-[clamp(24px,2.9vw,40px)] leading-[1.26] font-normal tracking-[-0.01em] text-pretty text-wine italic">
-            “No es que esté todo en tu cabeza.
+          <blockquote className="m-0 max-w-[26ch] font-display text-[clamp(24px,2.9vw,40px)] leading-[1.26] font-normal tracking-[-0.01em] text-pretty text-wine italic">
+            “No tienes enfermedades distintas.
             <br />
-            Es que nadie había mirado tu cuerpo completo.”
+            Es que nadie ha mirado tu cuerpo como un ser integral, donde está
+            todo conectado.”
           </blockquote>
           <figcaption className="mt-1.5 flex items-center gap-4 font-display text-[clamp(17px,1.5vw,22px)] font-medium tracking-[0.04em] text-wine">
             <span className="h-px w-[clamp(30px,4vw,54px)] bg-wine/40" />
