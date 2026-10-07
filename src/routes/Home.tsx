@@ -5,6 +5,7 @@ import Guia from '../components/home/Guia'
 import Hero from '../components/home/Hero'
 import Motivos from '../components/home/Motivos'
 import Proceso from '../components/home/Proceso'
+import QueEsIntegrativa from '../components/home/QueEsIntegrativa'
 import Testimonios from '../components/home/Testimonios'
 import ValidacionEmocional from '../components/home/ValidacionEmocional'
 import Footer from '../components/layout/Footer'
@@ -50,6 +51,7 @@ export default function Home() {
       <Enfoque />
       <Comparativa />
       <Proceso />
+      <QueEsIntegrativa />
       <Testimonios />
       <Guia />
       <Cierre />
