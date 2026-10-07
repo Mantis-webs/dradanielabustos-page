@@ -33,5 +33,10 @@ esa etapa ya cerró (2026-09-21). Se conserva solo como referencia histórica �
 - Conventional commits. Sin atribución de IA en los mensajes.
 - Cambio puntual pedido → cambiar solo eso.
 - No inventar contenido médico ni afirmaciones clínicas.
-- Sin emojis, sin gradientes decorativos, sin iconografía de spa. Tono cálido
-  con autoridad clínica.
+- Sin gradientes decorativos, sin iconografía de spa. Tono cálido con autoridad
+  clínica.
+- Emojis: solo donde el diseño los pide, dentro de un círculo `bg-blush-pastilla`
+  sobre la tarjeta (tarjetas de `Motivos` y de `QueEsIntegrativa`). En el resto
+  del sitio, sin emojis.
+- Textos de la home: vienen del documento de la clienta ("texto pagina web.pdf").
+  Se transcriben literal, corrigiendo solo erratas evidentes.
