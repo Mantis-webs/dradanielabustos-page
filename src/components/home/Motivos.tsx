@@ -13,26 +13,47 @@ export default function Motivos() {
           <div>
             <Kicker className="mb-4">Por qué vienen mis pacientes</Kicker>
             <h2 className="m-0 font-display text-[clamp(27px,3.2vw,44px)] leading-[1.14] font-normal text-pretty text-wine">
-              Cinco motivos que casi nunca vienen solos.
+              Motivos de consulta que casi nunca vienen solos.
             </h2>
           </div>
-          <p className="m-0 text-[15px] leading-[1.76] font-light text-pretty text-tinta-suave">
-            Suelen aparecer juntos, y ahí está la pista: no son cinco problemas
-            distintos, son un mismo sistema desregulado mostrándose por donde
-            puede.
-          </p>
+          <div className="grid gap-3 text-[15px] leading-[1.76] font-light text-pretty text-tinta-suave">
+            <p className="m-0">
+              Suelen aparecer juntos, y ahí está la clave: no son cinco problemas
+              distintos, son un mismo sistema desregulado.{' '}
+              <strong className="font-semibold text-tinta">
+                No se trata de encontrar una única causa para todo.
+              </strong>
+            </p>
+            <p className="m-0">
+              Se trata de entender el contexto completo y priorizar aquellos
+              factores que podemos modificar.
+            </p>
+          </div>
         </div>
 
-        <div className="relative mt-[clamp(36px,4.5vw,56px)] grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-[18px]">
-          {MOTIVOS.map((motivo) => (
+        {/*
+          Rejilla de 6 columnas: 3 + 2 en escritorio (las dos últimas más
+          anchas), 2 columnas en tablet y 1 en móvil. Con 5 tarjetas en una
+          sola fila cada una quedaba en ~200px y el texto largo se apretaba.
+        */}
+        <div className="relative mt-[clamp(36px,4.5vw,56px)] grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-6">
+          {MOTIVOS.map((motivo, i) => (
             <article
               key={motivo.titulo}
-              className="rounded-[3px] border border-wine/10 bg-white px-6 py-7"
+              className={`flex flex-col rounded-[3px] border border-wine/10 border-t-2 border-t-rose bg-white px-7 py-8 ${
+                i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'
+              } ${i === MOTIVOS.length - 1 ? 'sm:col-span-2' : ''}`}
             >
-              <h3 className="m-0 mb-3 font-display text-xl font-medium text-wine">
+              <div
+                aria-hidden="true"
+                className="mb-5 grid h-14 w-14 place-items-center rounded-full bg-blush-pastilla text-[26px] leading-none"
+              >
+                {motivo.icono}
+              </div>
+              <h3 className="m-0 mb-3 font-display text-[22px] leading-[1.2] font-medium text-wine">
                 {motivo.titulo}
               </h3>
-              <p className="m-0 text-sm leading-[1.7] font-light text-tinta-suave">
+              <p className="m-0 max-w-[48ch] text-[14.5px] leading-[1.7] font-light text-pretty text-tinta-suave">
                 {motivo.texto}
               </p>
             </article>

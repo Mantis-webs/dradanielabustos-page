@@ -1,32 +1,39 @@
 /**
  * Copy de las secciones que son listas repetitivas. Transcrito literal desde
- * site/index.html — no se agrega ni se reformula nada.
+ * el documento de textos de la clienta ("texto pagina web.pdf") — no se agrega
+ * ni se reformula nada, salvo erratas evidentes.
  */
 
 export const MOTIVOS = [
   {
-    titulo: 'Fatiga persistente',
+    icono: '🦠',
+    titulo: 'Salud intestinal y digestiva',
     texto:
-      'Cansancio que no cede con descanso ni con vacaciones, y que ningún examen explica.',
+      'Distensión abdominal, estreñimiento, diarrea, reflujo, síndrome de intestino irritable, SIBO, alteraciones de la microbiota.',
   },
   {
-    titulo: 'Digestión alterada',
+    icono: '🩸',
+    titulo: 'Salud metabólica',
     texto:
-      'Hinchazón, tránsito irregular, intolerancias que aparecieron de un momento a otro.',
+      'Resistencia a la insulina, síndrome metabólico, inflamación metabólica y dificultades en la regulación del peso.',
   },
   {
-    titulo: 'Inflamación',
+    icono: '🧠',
+    titulo: 'Estrés, sueño y energía',
     texto:
-      'Dolores difusos, retención, piel reactiva: señales de un sistema inmune en alerta.',
+      'Fatiga persistente, alteraciones del sueño, estrés sostenido, dificultades de recuperación y problemas en la regulación del sistema nervioso.',
   },
   {
-    titulo: 'Ansiedad',
+    icono: '🌸',
+    titulo: 'Salud de la mujer',
     texto:
-      'Un sistema nervioso que no logra bajar de revoluciones, aunque no pase nada afuera.',
+      'Salud hormonal, ciclo menstrual, metabolismo y acompañamiento nutricional y de estilo de vida en distintas etapas de la vida.',
   },
   {
-    titulo: 'Sueño roto',
-    texto: 'Cuesta dormir, o despiertas de madrugada y ya no vuelves a dormirte.',
+    icono: '🥗',
+    titulo: 'Nutrición y estilo de vida',
+    texto:
+      'Alimentación, ejercicio, sueño, hábitos y otros factores que pueden influir en nuestra salud.',
   },
 ]
 
