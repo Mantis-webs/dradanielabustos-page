@@ -29,7 +29,7 @@
  * pruebe una paleta muy distinta.
  */
 @theme {
-  --color-wine: #6b1f30;
+  --color-wine: #ea8197;
   --color-wine-oscuro: color-mix(in srgb, var(--color-wine) 64%, black);
   --color-wine-footer: color-mix(in srgb, var(--color-wine) 46%, black);
   --color-rose: #d89aa8;
@@ -39,7 +39,7 @@
   --color-blush-oscuro: color-mix(in srgb, var(--color-blush) 95%, black);
 
   /* Ramas decorativas — verde salvia */
-  --color-rama: #9db894; /* sobre fondos oscuros */
+  --color-rama: #2c8f90; /* sobre fondos oscuros */
   --color-rama-oscura: color-mix(in srgb, var(--color-rama) 71%, black); /* sobre fondos claros */
 
   /* Neutros y apoyos derivados del prototipo */

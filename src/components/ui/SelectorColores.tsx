@@ -16,7 +16,7 @@ type Token = {
 }
 
 const TOKENS: Token[] = [
-  { variable: '--color-wine', etiqueta: 'Wine (marca)', valorPorDefecto: '#6b1f30' },
+  { variable: '--color-wine', etiqueta: 'Wine (marca)', valorPorDefecto: '#ea8197' },
   { variable: '--color-rose', etiqueta: 'Rose (acento)', valorPorDefecto: '#d89aa8' },
   {
     variable: '--color-rose-oscuro',
@@ -24,7 +24,7 @@ const TOKENS: Token[] = [
     valorPorDefecto: '#8a4356',
   },
   { variable: '--color-blush', etiqueta: 'Blush (fondo)', valorPorDefecto: '#f7e8ec' },
-  { variable: '--color-rama', etiqueta: 'Rama (decorativo)', valorPorDefecto: '#9db894' },
+  { variable: '--color-rama', etiqueta: 'Rama (decorativo)', valorPorDefecto: '#2c8f90' },
 ]
 
 type Paleta = {
