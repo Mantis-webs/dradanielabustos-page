@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import logoWordmark from '../../assets/img/logo-wordmark-blanco.webp'
+import { EVENTO_ABRIR_COOKIES, HAY_ANALITICA } from '../../data/analitica'
 import { CORREO, INSTAGRAM, LINKEDIN } from '../../data/enlaces'
 import RamaFooter from '../decor/RamaFooter'
 import type { EnlaceNav } from './Header'
@@ -131,15 +132,21 @@ export default function Footer({ enlaces }: { enlaces: EnlaceNav[] }) {
           <p className="m-0">
             © 2026 Dra. Daniela Bustos Riquelme. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-[6px]">
-            <span>Powered by</span>
-            {/* TODO: la agencia no entregó el enlace real de MK Agencia. */}
-            <a
-              href="#"
-              className="text-blush/82 hover:text-rose"
-            >
-              MK Agencia.cl
-            </a>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link to="/privacidad" className={ENLACE}>
+              Política de privacidad
+            </Link>
+            {HAY_ANALITICA && (
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event(EVENTO_ABRIR_COOKIES))}
+                className={`cursor-pointer border-none bg-transparent p-0 font-[inherit] text-[length:inherit] ${ENLACE}`}
+              >
+                Preferencias de cookies
+              </button>
+            )}
+            {/* Sin enlace: mkagencia.cl no existe (sin DNS al 2026-10-27). */}
+            <span>Powered by MK Agencia.cl</span>
           </div>
         </div>
       </div>

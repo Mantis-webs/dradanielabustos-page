@@ -17,12 +17,11 @@ export const LINKEDIN = 'https://www.linkedin.com/in/dra-daniela-bustos/'
 export const CORREO = 'dra.dbustosr@gmail.com'
 
 /**
- * TODO (README punto 4, bloqueante): la página de política de privacidad no
- * existe. En el prototipo el checkbox de consentimiento apunta a un ancla
- * vacía; mantenemos el mismo estado pendiente en vez de inventar contenido
- * legal. Reemplazar por la ruta real cuando exista.
+ * Página de la política de privacidad (`src/routes/Privacidad.tsx`). Va en URL
+ * absoluta porque es la que se pega en el checkbox de consentimiento de los
+ * formularios de GHL, que viven en otro dominio.
  */
-export const POLITICA_PRIVACIDAD = '#'
+export const POLITICA_PRIVACIDAD = 'https://dradanielabustos.com/privacidad'
 
 export const AGENCIA = 'https://zabroso.cl'
 

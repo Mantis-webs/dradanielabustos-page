@@ -15,9 +15,9 @@ const FORM_ID = '4OGCGkVkd06S7iChG3Ws'
  * Los campos definidos en el README (Nombre, Apellido, Correo, WhatsApp
  * OBLIGATORIO y checkbox de consentimiento) se configuran en GHL, no acá.
  *
- * TODO (README punto 4, bloqueante): el checkbox de consentimiento enlaza a la
- * política de privacidad, que todavía no existe como página. Hay que crearla
- * antes de pedir ese consentimiento en serio.
+ * El checkbox de consentimiento enlaza a la política de privacidad
+ * (`POLITICA_PRIVACIDAD` en `data/enlaces.ts`); ese enlace también se
+ * configura en GHL.
  */
 export default function FormularioMasterclass() {
   useGhlEmbed()
