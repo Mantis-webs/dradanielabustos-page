@@ -7,11 +7,17 @@ deprecado.
 ## El producto — `src/`
 
 - Vite + React 19 + TypeScript. Scripts en `package.json`: `dev`, `build`,
-  `lint`, `preview`.
+  `lint`, `preview`, `test` (Vitest, sin build), `test:build` (build + revisión
+  de `dist/`) y `verificar` (todo, antes de subir a producción).
 - Tailwind CSS 4 vía `@tailwindcss/vite`.
 - Ruteo con `react-router-dom` entre `/` y `/curso`.
 - Componentes en `src/components/`, datos centralizados en `src/data/`.
 - `index.html` de la raíz es el entry point de Vite.
+- `npm run build` prerenderiza cada ruta (`src/entry-server.tsx` +
+  `scripts/prerender.mjs`): el HTML sale con contenido y metadatos de
+  `src/data/seo.ts`, y `main.tsx` lo hidrata. Una ruta nueva se agrega en
+  `App.tsx` **y** en `METADATOS` (`src/data/seo.ts`) y `public/sitemap.xml`.
+  Lo que use APIs del navegador en el render va detrás de `useMontado`.
 - Dominio de producción: `dradanielabustos.com`. Deploy en Cloudflare Pages
   (configurado en el dashboard, no versionado en el repo).
 

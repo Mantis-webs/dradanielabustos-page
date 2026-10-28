@@ -27,6 +27,17 @@ analítica/GHL y para el contenido de `src/`.
 
 A medida que lleguen más accesos o enlaces, se agregan filas a esta tabla.
 
+## Pruebas antes de subir a producción
+
+```bash
+npm run verificar   # lint + pruebas sin build + build y revisión de dist/
+```
+
+| Script | Qué revisa | Hace build |
+|---|---|---|
+| `npm test` | `tests/prerender.test.tsx`: cada ruta prerenderiza su contenido dentro de `<main>`, sin avisos "Pendiente"; hidrata sin desajustes ni errores en consola; el reproductor del VSL monta solo en el navegador. Incluye una prueba de control que provoca un desajuste a propósito y exige que se detecte. `tests/seo.test.ts`: largo de títulos y descripciones, canonical/OG/Twitter, JSON-LD válido, sitemap alineado con las rutas. | No |
+| `npm run test:build` | `tests/build/dist.test.ts`: el `dist/` real. Sin `404.html` (el bug del 404 en `/curso`), un HTML por ruta con contenido y su título, JSON-LD parseable, todos los `/assets/` existen, sin Google Fonts, JS de entrada < 500 KB y sin Vidstack. | Sí |
+
 ## Pendientes
 
 Los enlaces y accesos de conexión (Google, GHL, etc.) se van a ir entregando y
@@ -109,22 +120,53 @@ honrar. Si más adelante se quiere newsletter, hay que crear un **campo
 personalizado** de tipo checkbox en GHL (Settings → Custom Fields) en vez de un
 segundo "Terms & Conditions": ese sí tiene clave propia y se puede segmentar.
 
-**Sigue bloqueante**: el enlace a la política de privacidad no apunta a ninguna
-parte, porque esa página no existe. En el producto es la constante
-`POLITICA_PRIVACIDAD` de `src/data/enlaces.ts`, hoy en `'#'`. Hace falta la
-página real antes de poder pedir este consentimiento en serio.
+**Política de privacidad — página creada 2026-10-27** en `/privacidad`
+(`src/routes/Privacidad.tsx`), redactada para uso comercial y de marketing
+de los datos (Ley 19.628, Ley 21.719 y RGPD). Es un borrador de la agencia:
+**falta revisión de un abogado** antes de darla por definitiva. Datos que no
+se inventaron y conviene completar si el abogado los pide: RUT y domicilio
+de la responsable, y nombre de la plataforma de pago.
+
+Pendiente en GHL (no se puede hacer desde el repo):
+
+- Apuntar el link del checkbox de los dos formularios a
+  `https://dradanielabustos.com/privacidad` (constante `POLITICA_PRIVACIDAD`).
+- Como los datos se usan para marketing, cambiar el texto del checkbox a algo
+  que lo diga explícitamente, por ejemplo: "Acepto la política de privacidad
+  y recibir comunicaciones comerciales por correo y WhatsApp."
 
 ### 5. Deploy — RESUELTO
 
 **Confirmado 2026-09-21**: el deploy en Cloudflare Pages ya está funcionando
-correctamente. No hay nada pendiente acá.
+correctamente.
 
-### 6. Analítica y tracking
+**Corregido 2026-10-27 — `/curso` respondía HTTP 404.** El build copiaba
+`index.html` a `dist/404.html` (fallback heredado de GitHub Pages). Con un
+`404.html` en la raíz, Cloudflare Pages desactiva su modo SPA y responde 404
+en toda ruta que no sea un archivo: la persona veía la página, pero Google la
+trataba como inexistente. Se quitó ese plugin y `public/_redirects`; ahora el
+build emite `curso.html` y `privacidad.html` (con sus propios metadatos) y el
+resto cae en el modo SPA nativo de Pages. Después del deploy, verificar con
+`curl -I https://dradanielabustos.com/curso` que responda 200.
 
-- Alta en Google Search Console
-- Conectar Google Analytics
-- Conectar Microsoft Clarity
-- Instalar Meta Pixel
+### 6. Analítica y tracking — montado, faltan los IDs
+
+**2026-10-27**: GA4, Microsoft Clarity y Meta Pixel quedaron integrados
+(`src/hooks/useAnalitica.ts`), con aviso de cookies de opt-in previo
+(`src/components/ui/AvisoCookies.tsx`): ningún script carga hasta que la
+persona acepta, y la decisión se cambia desde "Preferencias de cookies" en el
+footer. Se registra una página vista por cada cambio de ruta.
+
+Para activarlos basta con pegar los IDs en `src/data/analitica.ts`. Mientras
+estén vacíos, no se carga nada ni aparece el aviso.
+
+- **Search Console:** verificar como propiedad de dominio con un registro TXT
+  en el DNS de Cloudflare (no hace falta tocar el código) y enviar
+  `https://dradanielabustos.com/sitemap.xml`.
+- **Script de tracking de GHL** (`external-tracking.js` en `index.html`): carga
+  siempre, sin pasar por el aviso. La política lo declara como atribución de
+  formularios, pero lo más estricto sería condicionarlo al consentimiento.
+  Decidir con la clienta.
 
 ### 7. Tags de Go High Level para métricas — RESUELTO
 
@@ -133,10 +175,44 @@ de `index.html` (`external-tracking.js`, `data-tracking-id`). Tags de lead
 ya definidos arriba: `lead-guia`, `lead-masterclass` (falta el de
 agendamiento, ver punto 2 — no aplica porque no hay form de GHL para eso).
 
-### 8. Auditoría SEO
+### 8. Auditoría SEO — primera pasada hecha
 
-Correr la skill de auditoría SEO instalada globalmente (`claude-seo-ai:audit`)
-sobre el sitio.
+**2026-10-27**: auditoría con `claude-seo-ai:audit` sobre producción (antes de
+estos arreglos, cobertura parcial): Search SEO 43.9/100, AI Visibility
+64.6/100. Resuelto en esta tanda: 404 de `/curso`, `robots.txt` +
+`sitemap.xml`, title/description/canonical/Open Graph/Twitter por ruta
+(`src/data/seo.ts`, imagen `public/og-imagen.jpg`) y favicon con ruta
+absoluta.
+
+Resuelto en la segunda tanda (2026-10-27):
+
+- **Prerender:** `scripts/prerender.mjs` genera el HTML de `/`, `/curso` y
+  `/privacidad` con el contenido ya renderizado (`src/entry-server.tsx`), y
+  `main.tsx` lo hidrata. Lo que depende del navegador (reproductor del VSL,
+  aviso de cookies, selector de colores) monta solo en cliente
+  (`useMontado`). Vidstack se carga con `lazy`, solo en `/curso`.
+- **JSON-LD:** `WebSite` + `Person` en la home, `Course` en `/curso`
+  (`src/data/seo.ts`), solo con datos ya publicados en el sitio.
+- **`<main>`** en las tres rutas.
+- **Imágenes** en WebP al tamaño de pantalla (las fotos bajaron de ~400 KB a
+  80–123 KB), con `width`/`height` y `loading="lazy"` fuera del primer
+  pantallazo.
+- **Fuentes autoalojadas** (Fontsource, versión variable) en vez de Google
+  Fonts; script de GHL con `async`.
+- **`llms.txt`** y `favicon.ico`.
+- **Title/description de la home** con especialidad, modalidad online y
+  llamada a la acción. Es metadato, no copy de la página; si la clienta
+  prefiere otra redacción, se cambia en `src/data/seo.ts`.
+
+Pendiente (necesita a la clienta):
+
+- **Credenciales médicas (E-E-A-T):** título profesional, universidad,
+  registro en la Superintendencia de Salud y, si aplica, colegiatura en España.
+  Van visibles en "Quién soy" y en el `Person` del JSON-LD. No se inventan.
+- **Datos locales:** la atención es online, así que no hay `address` ni
+  Google Business Profile. Solo aplica si la clienta tiene consulta física.
+
+Re-auditar con render y PageSpeed después del prerender.
 
 ### 9. Reseñas — reemplazar Trustpilot por scraping de Encuadrado — RESUELTO
 
@@ -182,6 +258,10 @@ Los links reales están aplicados en `src/`, centralizados en
 Instagram sin `www`. Eso es correcto y no hay que arreglarlo ahí: el prototipo
 es de revisión de contenido, y el producto es el que va a producción.
 
+**Footer "Powered by" (2026-10-27):** quedó como texto plano "MK Agencia.cl"
+sin enlace, porque `mkagencia.cl` no tiene DNS. Falta la URL real de la
+agencia (`AGENCIA` en `src/data/enlaces.ts` apunta a zabroso.cl y no se usa).
+
 ### 11. Desincronizaciones de documentación — CERRADO
 
 **Cerrado 2026-09-21**: ya se conversó con la clienta el tema de las ramas
@@ -213,6 +293,8 @@ bien. No hay nada pendiente acá.
 - **Copy:** hero ("¿Por qué me inflamo?") y sección del video (bajada y "¿Qué
   incluye el curso?") transcritos del documento. Se quitó el botón "Ver la
   clase" del hero, tal como pide el documento.
+- **Video sin cookies:** Vidstack ya usa `youtube-nocookie.com` por defecto
+  (`cookies: false`), no requiere cambios.
 - **Pendiente — link de compra:** el botón "Comprar curso" usa
   `COMPRA_CURSO` (`src/data/enlaces.ts`), que hoy apunta a `#inscripcion`.
   Reemplazar por la URL real de pago.
@@ -221,8 +303,6 @@ bien. No hay nada pendiente acá.
   y los links del header/footer ("La clase", "Inscribirme") siguen con el
   enfoque de masterclass gratuita. Hay que confirmar con la clienta si esa
   sección se mantiene ahora que es un curso pagado.
-- Cookies de terceros: el embed de YouTube engancha con la política de
-  privacidad del punto 4. Vidstack acepta URLs de `youtube-nocookie.com`.
 
 ### 14. Prototipo `site/` deprecado — RESUELTO
 
