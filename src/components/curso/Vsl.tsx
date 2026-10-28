@@ -1,12 +1,11 @@
-import { MediaPlayer, MediaProvider } from '@vidstack/react'
-import {
-  DefaultVideoLayout,
-  defaultLayoutIcons,
-} from '@vidstack/react/player/layouts/default'
+import { lazy, Suspense } from 'react'
 
-import { COMPRA_CURSO, VSL_VIDEO_ID } from '../../data/enlaces'
+import { COMPRA_CURSO } from '../../data/enlaces'
+import { useMontado } from '../../hooks/useMontado'
 import BotonCta from '../ui/BotonCta'
 import Kicker from '../ui/Kicker'
+
+const ReproductorVsl = lazy(() => import('./ReproductorVsl'))
 
 const TEMAS = [
   'Inflamación vs. distensión abdominal',
@@ -29,9 +28,13 @@ const MATERIAL = [
  * El video se sirve desde YouTube y se envuelve con Vidstack para que los
  * controles usen la paleta de la Dra. y no la de YouTube. El id vive en
  * `data/enlaces.ts` junto al resto de los datos que dependen de la clienta.
+ * El reproductor monta solo en el navegador; el prerender deja la caja 9:16
+ * reservada para que el texto no salte cuando aparece.
  * Copy del documento de la clienta "pagina curso.pdf".
  */
 export default function Vsl() {
+  const montado = useMontado()
+
   return (
     <section
       id="video"
@@ -39,18 +42,13 @@ export default function Vsl() {
     >
       <div className="relative mx-auto grid max-w-[980px] items-center gap-[clamp(32px,5vw,72px)] md:grid-cols-[minmax(0,380px)_1fr]">
         <div className="mx-auto w-full max-w-[380px] md:mx-0">
-          <MediaPlayer
-            className="vsl-player w-full overflow-hidden"
-            title="¿Por qué me inflamo? · Curso de la Dra. Daniela Bustos"
-            src={`youtube/${VSL_VIDEO_ID}`}
-            aspectRatio="9/16"
-            playsInline
-            load="visible"
-            posterLoad="visible"
-          >
-            <MediaProvider />
-            <DefaultVideoLayout icons={defaultLayoutIcons} />
-          </MediaPlayer>
+          <div className="aspect-[9/16] w-full bg-wine-footer/40">
+            {montado && (
+              <Suspense fallback={null}>
+                <ReproductorVsl />
+              </Suspense>
+            )}
+          </div>
         </div>
 
         <div className="text-center md:text-left">

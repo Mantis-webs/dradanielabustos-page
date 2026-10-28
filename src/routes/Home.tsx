@@ -11,6 +11,7 @@ import ValidacionEmocional from '../components/home/ValidacionEmocional'
 import Footer from '../components/layout/Footer'
 import Header, { type EnlaceCta, type EnlaceNav } from '../components/layout/Header'
 import { AGENDAMIENTO } from '../data/enlaces'
+import { useMetadatos } from '../hooks/useMetadatos'
 
 /**
  * Orden de secciones tomado de site/index.html.
@@ -42,19 +43,23 @@ const NAV_FOOTER: EnlaceNav[] = [
 ]
 
 export default function Home() {
+  useMetadatos('/')
+
   return (
     <div className="overflow-x-hidden bg-blush font-sans text-tinta">
       <Header variante="home" enlaces={NAV} cta={CTA} />
-      <Hero />
-      <ValidacionEmocional />
-      <Motivos />
-      <Enfoque />
-      <Comparativa />
-      <Proceso />
-      <QueEsIntegrativa />
-      <Testimonios />
-      <Guia />
-      <Cierre />
+      <main>
+        <Hero />
+        <ValidacionEmocional />
+        <Motivos />
+        <Enfoque />
+        <Comparativa />
+        <Proceso />
+        <QueEsIntegrativa />
+        <Testimonios />
+        <Guia />
+        <Cierre />
+      </main>
       <Footer enlaces={NAV_FOOTER} />
     </div>
   )

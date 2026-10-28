@@ -1,0 +1,6 @@
+# Cloudflare antepone su bloque administrado (bots de entrenamiento de IA).
+# Se configura en el dashboard, no acá.
+User-agent: *
+Allow: /
+
+Sitemap: https://dradanielabustos.com/sitemap.xml
