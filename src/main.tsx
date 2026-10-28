@@ -1,3 +1,6 @@
+import '@fontsource-variable/inter/wght.css'
+import '@fontsource-variable/montserrat/wght.css'
+import '@fontsource-variable/playfair-display/wght.css'
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'

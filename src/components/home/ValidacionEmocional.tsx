@@ -1,10 +1,14 @@
-import logoIconoWine from '../../assets/img/logo-icono-wine.png'
+import logoIconoWine from '../../assets/img/logo-icono-wine.webp'
 
 export default function ValidacionEmocional() {
   return (
     <section className="relative overflow-hidden bg-blush px-[clamp(20px,5vw,72px)] py-[clamp(64px,9vw,112px)]">
       <img
         src={logoIconoWine}
+        width={567}
+        height={567}
+        loading="lazy"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute bottom-[-70px] left-[-60px] w-[min(38vw,380px)] opacity-[0.08]"
       />

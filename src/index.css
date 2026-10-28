@@ -52,9 +52,9 @@
   --color-blush-pastilla: color-mix(in srgb, var(--color-rose) 45%, var(--color-blush)); /* chips de la presentación */
   --color-wine-pastilla: color-mix(in srgb, var(--color-wine) 80%, black); /* texto de los chips */
 
-  --font-display: 'Playfair Display', serif;
-  --font-label: Montserrat, sans-serif;
-  --font-sans: Inter, sans-serif;
+  --font-display: 'Playfair Display Variable', serif;
+  --font-label: 'Montserrat Variable', sans-serif;
+  --font-sans: 'Inter Variable', sans-serif;
 }
 
 /* Equivalente a lo que el prototipo pone en <helmet><style>. */

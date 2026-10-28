@@ -1,6 +1,6 @@
-import fotoNatural from '../../assets/img/foto-natural-01.jpg'
-import fotoRetrato from '../../assets/img/foto-estudio-01-retrato.jpg'
-import logoIconoWine from '../../assets/img/logo-icono-wine.png'
+import fotoNatural from '../../assets/img/foto-natural-01.webp'
+import fotoRetrato from '../../assets/img/foto-estudio-01-retrato.webp'
+import logoIconoWine from '../../assets/img/logo-icono-wine.webp'
 import { CHIPS_ENFOQUE } from '../../data/contenido'
 import { AGENDAMIENTO } from '../../data/enlaces'
 import {
@@ -34,11 +34,19 @@ export default function Enfoque() {
           */}
           <img
             src={fotoNatural}
+            width={760}
+            height={1013}
+            loading="lazy"
+            decoding="async"
             alt="La Dra. Daniela Bustos Riquelme en el huerto"
             className="block h-full max-h-[440px] min-h-[380px] w-full rounded-[2px] object-cover object-[50%_42%] md:max-h-none"
           />
           <img
             src={logoIconoWine}
+            width={567}
+            height={567}
+            loading="lazy"
+            decoding="async"
             alt=""
             className="absolute right-[-18px] bottom-[-22px] w-[74px] opacity-90"
           />
@@ -129,6 +137,10 @@ export default function Enfoque() {
 
         <img
           src={fotoRetrato}
+          width={900}
+          height={1169}
+          loading="lazy"
+          decoding="async"
           alt="Retrato de la Dra. Daniela Bustos Riquelme"
           className="relative block aspect-square w-full rounded-2xl object-cover object-[50%_16%] shadow-[0_30px_70px_-44px_rgba(74,18,31,0.55)]"
         />

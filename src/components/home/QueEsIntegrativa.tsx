@@ -1,4 +1,4 @@
-import logoIconoBlanco from '../../assets/img/logo-icono-blanco.png'
+import logoIconoBlanco from '../../assets/img/logo-icono-blanco.webp'
 
 /**
  * Banda oscura entre Proceso y Reseñas: corta el ritmo de fondos claros y
@@ -14,6 +14,10 @@ export default function QueEsIntegrativa() {
     >
       <img
         src={logoIconoBlanco}
+        width={567}
+        height={567}
+        loading="lazy"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute right-[-90px] bottom-[-80px] -z-10 w-[min(42vw,420px)] rotate-[14deg] opacity-[0.07]"
       />

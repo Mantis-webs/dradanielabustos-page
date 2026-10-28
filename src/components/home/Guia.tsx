@@ -1,4 +1,4 @@
-import logoIconoBlanco from '../../assets/img/logo-icono-blanco.png'
+import logoIconoBlanco from '../../assets/img/logo-icono-blanco.webp'
 import { BULLETS_GUIA } from '../../data/contenido'
 import FormularioLeadMagnet from '../FormularioLeadMagnet'
 import Kicker from '../ui/Kicker'
@@ -54,6 +54,10 @@ export default function Guia() {
             <div className="grid justify-items-start gap-[18px]">
               <img
                 src={logoIconoBlanco}
+                width={567}
+                height={567}
+                loading="lazy"
+                decoding="async"
                 alt=""
                 className="block h-[46px] w-[46px] opacity-90"
               />

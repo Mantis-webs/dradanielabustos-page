@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoWordmark from '../../assets/img/logo-wordmark-blanco.png'
+import logoWordmark from '../../assets/img/logo-wordmark-blanco.webp'
 import { CORREO, INSTAGRAM, LINKEDIN } from '../../data/enlaces'
 import RamaFooter from '../decor/RamaFooter'
 import type { EnlaceNav } from './Header'
@@ -61,6 +61,10 @@ export default function Footer({ enlaces }: { enlaces: EnlaceNav[] }) {
           <div className="grid justify-items-start gap-4">
             <img
               src={logoWordmark}
+              width={567}
+              height={180}
+              loading="lazy"
+              decoding="async"
               alt="Dra. Daniela Bustos — Medicina Integrativa"
               className="block w-full max-w-[240px]"
             />

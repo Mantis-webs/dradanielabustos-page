@@ -1,4 +1,4 @@
-import logoIconoBlanco from '../../assets/img/logo-icono-blanco.png'
+import logoIconoBlanco from '../../assets/img/logo-icono-blanco.webp'
 import { AGENDAMIENTO } from '../../data/enlaces'
 import { useParallaxHero } from '../../hooks/useParallaxHero'
 import { PuntosHero, RamasHero } from '../decor/RamasHome'
@@ -20,6 +20,8 @@ export default function Hero() {
       >
         <img
           src={logoIconoBlanco}
+          width={567}
+          height={567}
           alt=""
           className="block w-full rotate-[14deg]"
         />

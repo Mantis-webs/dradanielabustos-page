@@ -1,4 +1,4 @@
-import logoIconoBlanco from '../../assets/img/logo-icono-blanco.png'
+import logoIconoBlanco from '../../assets/img/logo-icono-blanco.webp'
 import { AGENDAMIENTO } from '../../data/enlaces'
 import BotonCta from '../ui/BotonCta'
 import Kicker from '../ui/Kicker'
@@ -11,6 +11,10 @@ export default function Cierre() {
     >
       <img
         src={logoIconoBlanco}
+        width={567}
+        height={567}
+        loading="lazy"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute top-[-60px] right-[-70px] w-[min(36vw,340px)] opacity-[0.07]"
       />

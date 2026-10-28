@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logoIcono from '../../assets/img/logo-icono-wine.png'
+import logoIcono from '../../assets/img/logo-icono-wine.webp'
 import BotonCta from '../ui/BotonCta'
 import MenuMovil from './MenuMovil'
 
@@ -41,7 +41,7 @@ export default function Header({
 
   const lockup = (
     <>
-      <img src={logoIcono} alt="" className="block h-10 w-10" />
+      <img src={logoIcono} alt="" width={40} height={40} className="block h-10 w-10" />
       <span className="block leading-none">
         <span className="block font-display text-[19px] font-medium tracking-[0.04em] text-wine">
           Dra. Daniela Bustos
