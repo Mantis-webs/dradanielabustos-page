@@ -27,21 +27,14 @@ export const POLITICA_PRIVACIDAD = '#'
 export const AGENCIA = 'https://zabroso.cl'
 
 /**
- * TODO (README punto 13, bloqueante): el reel / short real NO existe todavía.
- *
- * `pU6_t5tU3hQ` es un Short de las Bibliothèques UdeM, usado solo como relleno
- * para montar y revisar el reproductor 9:16; su licencia no está verificada,
- * así que NO se debe publicar con él.
- *
- * Para publicar hay que:
- *   1. Pedirle a la clienta el reel / short real.
- *   2. Subirlo a YouTube (Short o NO LISTADO) desde la cuenta de la Dra.
- *      Vidstack no reproduce Instagram.
- *   3. Reemplazar VSL_VIDEO_ID por el id de ese video.
- *   4. Poner VSL_ES_PLACEHOLDER en false para que desaparezca el aviso en la
- *      página.
+ * VSL de /curso: Short "¿Por qué me inflamo?" entregado por la clienta el
+ * 2026-10-27 (https://youtube.com/shorts/2nLzpH_f81c).
  */
-export const VSL_VIDEO_ID = 'pU6_t5tU3hQ'
+export const VSL_VIDEO_ID = '2nLzpH_f81c'
 
-/** Mientras sea `true`, /curso muestra el aviso de que el video es de relleno. */
-export const VSL_ES_PLACEHOLDER = true
+/**
+ * TODO (README punto 13, bloqueante): falta el link de compra del curso.
+ * Mientras no exista, el botón "Comprar curso" baja al formulario de
+ * inscripción. Reemplazar por la URL real de pago.
+ */
+export const COMPRA_CURSO = '#inscripcion'
